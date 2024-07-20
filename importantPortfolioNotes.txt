@@ -1,0 +1,5 @@
+you need to make a big project services
+
+then copy each of the terms in the export class of the home component
+
+next commit - when you've
