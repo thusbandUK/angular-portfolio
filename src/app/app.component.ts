@@ -12,7 +12,6 @@ import { FooterComponent } from './footer/footer.component';
   template: `
     <header>
       <app-navbar></app-navbar>
-
     </header>
     <main>      
       <section class="content">

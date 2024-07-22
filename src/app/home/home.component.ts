@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
-import {HousingLocationComponent} from '../housing-location/housing-location.component';
+//import {HousingLocationComponent} from '../housing-location/housing-location.component';
 import {CommonModule} from '@angular/common';
-import {HousingLocation} from '../housinglocation';
+//import {HousingLocation} from '../housinglocation';
 import { BigProjectStructure } from '../bigProjectStructure';
 import { BigProjectComponent } from '../big-project/big-project.component';
 //import { NgFor } from '@angular/common';
 import {NgFor} from '@angular/common';
-import {HousingService} from '../housing.service';
+//import {HousingService} from '../housing.service';
 import { BigProjectService } from '../bigProject.service';
 
 /*
@@ -23,24 +23,12 @@ value should be treated as a property from the component class and not a string 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HousingLocationComponent, NgFor, CommonModule, BigProjectComponent],
-  template: `
-    <section>
-      <form>
-        <input type="text" placeholder="Filter by city" />
-        <button class="primary" type="button">Search</button>
-      </form>
-    </section>
+  imports: [NgFor, CommonModule, BigProjectComponent],
+  template: `    
     <app-big-project
       *ngFor="let bigProject of bigProjectList"
         [bigProject]="bigProject"
-    ></app-big-project>
-    <section class="results">    
-    <app-housing-location
-        *ngFor="let housingLocation of housingLocationList"
-        [housingLocation]="housingLocation"        
-      ></app-housing-location>
-    </section>
+    ></app-big-project>    
   `,
   styleUrl: './home.component.css'
 })
@@ -48,12 +36,12 @@ export class HomeComponent {
   //readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
 
   bigProjectService: BigProjectService = inject(BigProjectService);
-  housingService: HousingService = inject(HousingService);
+  //housingService: HousingService = inject(HousingService);
   constructor() {
-    this.housingLocationList = this.housingService.getAllHousingLocations();
+    //this.housingLocationList = this.housingService.getAllHousingLocations();
     this.bigProjectList = this.bigProjectService.getAllBigProjects();
   }
   
-  housingLocationList: HousingLocation[] = [];
+  //housingLocationList: HousingLocation[] = [];
   bigProjectList: BigProjectStructure[] = [];
 }
