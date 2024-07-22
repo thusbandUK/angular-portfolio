@@ -14,7 +14,13 @@ import { BigProjectService } from '../bigProject.service';
   selector: 'app-big-project-container',
   standalone: true,
   imports: [NgFor, CommonModule, BigProjectComponent],
-  template: `    
+  template: `
+    <!--The "Projects" title-->
+    <div id="projects" class="text-start mt-5 mx-auto">
+      <div class="main-title-inner">
+        <h2>Projects</h2>
+      </div>
+    </div>    
     <app-big-project
       *ngFor="let bigProject of bigProjectList"
         [bigProject]="bigProject"
