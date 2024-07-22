@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+//import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainTitleComponent } from './main-title/main-title.component';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { BigProjectContainerComponent } from './big-project-container/big-project-container.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent],
   template: `
     <header>
       <app-navbar></app-navbar>
@@ -23,7 +24,7 @@ import { AboutMeComponent } from './about-me/about-me.component';
         <app-about-me></app-about-me>
       </section>
       <section id="projects">
-        <app-home></app-home>
+        <app-big-project-container></app-big-project-container>        
       </section>
     </main>
     <footer>
@@ -33,5 +34,5 @@ import { AboutMeComponent } from './about-me/about-me.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'homes';
+  title = 'T Husband';
 }
