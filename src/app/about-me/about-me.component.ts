@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <div id="about-me" class="text-start mt-5 mx-auto">
+    <div class="text-start mt-5 mx-auto">
       <div class="main-title-inner">
         <h2>About</h2>
         <div class="row">

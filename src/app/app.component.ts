@@ -17,10 +17,10 @@ import { BigProjectContainerComponent } from './big-project-container/big-projec
       <app-navbar></app-navbar>
     </header>
     <main>
-      <section>
+      <section id="main-title">
         <app-main-title></app-main-title>
       </section>
-      <section>
+      <section id="about-me">
         <app-about-me></app-about-me>
       </section>
       <section id="projects">
