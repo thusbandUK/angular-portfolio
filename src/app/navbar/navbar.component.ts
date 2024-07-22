@@ -17,7 +17,7 @@ import { Component } from '@angular/core';
               <a class="nav-link" aria-current="page" href="#about-me">About</a>
             </li>
             <li class="nav-item px-lg-4 mx-lg-1">
-              <a class="nav-link" href="#projects">Projects</a>
+              <a class="nav-link" href="#projects" target="_self">Projects</a>
             </li>
             <li class="nav-item px-lg-4 mx-lg-1">
               <a class="nav-link" href="#bonus-material">Bonus Material</a>
