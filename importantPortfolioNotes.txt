@@ -1,5 +1,20 @@
-you need to make a big project services
+need to 
 
-then copy each of the terms in the export class of the home component
+create a new portfolio repo
+create an agile todo list in github repo
 
-next commit - when you've
+modify bigProject service to provide aria-labels and titles for existing elements and create additional aria-labels / titles
+for other elements, esp button linking to external website of project
+
+links shouldn't be buttons, links should be links
+
+update css across project - you need to figure out how to get even-numbered bigProjects to render on the other side of the screen. 
+In the static site much of the work is completed by including or omitting specific class names. There is a way to conditionally
+render different classes, possibly using ngClass (needs importing? configuring in the exports?)
+
+ensure that all of the class names and IDs (css) are represented in the elements - could include root index.html file etc.
+
+install and configure the service that enables the FB, insta, github etc icons
+
+create objects for other big projects
+

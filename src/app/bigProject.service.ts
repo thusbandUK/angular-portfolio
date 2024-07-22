@@ -19,6 +19,26 @@ export class BigProjectService {
         skills: ['JAVASCRIPT', 'REACT-REDUX', 'BOOTSTRAP'],
         githubUrl: 'https://github.com/thusbandUK/transition-redux',
         siteUrl: 'https://nowchemistry.com/'   
+      },
+      {
+        id: 2,
+        image: './assets/screengrabs of sites and snippets/sarahlavelle3.png',
+        imageAlt: 'front page of Sarah Lavelle website features cartoon sea creatures',
+        title: 'Sarah Lavelle',
+        description: 'A responsive website advertising the debut publication of a children\’s book author. Users can read about the author and her work and download educational resources. The website is connected with Google Analytics, configured to show the volume of traffic which clicks through the link to purchase the book. A cookie consent banner is also configured to disable Analytics at the user’s request.',
+        skills: ['JAVASCRIPT', 'HTML', 'CSS', 'BOOTSTRAP'],
+        githubUrl: 'https://github.com/thusbandUK/sarahlavelle',
+        siteUrl: 'https://www.sarahlavelle.co.uk/'   
+      },
+      {
+        id: 3,
+        image: './assets/screengrabs of sites and snippets/raven-frames.png',
+        imageAlt: 'front page of Raven Frames website features example picture frames',
+        title: 'Raven Frames',
+        description: 'A responsive website showcasing the work of a Bristol-based framing company. The commissioner has a strong visual eye and we worked together to ensure the design fully reflected their vision. Easily navigable via an offcanvas navbar, the site is fully optimised for desktops, tablets and mobiles.',
+        skills: ['JAVASCRIPT', 'HTML', 'CSS', 'BOOTSTRAP'],
+        githubUrl: 'https://github.com/thusbandUK/raven-frames',
+        siteUrl: 'https://ravenframes.co.uk/'   
       }
   ];
 

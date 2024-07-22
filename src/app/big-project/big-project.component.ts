@@ -1,18 +1,28 @@
 import { Component, Input } from '@angular/core';
 import { BigProjectStructure } from '../bigProjectStructure';
-import {CommonModule, NgFor} from '@angular/common';
+import {CommonModule, NgFor, NgClass} from '@angular/common';
+
+/*
+Renders each big project from bigProject.service.ts
+
+Structure of imported object via BigProjectStructure
+
+Note: NgClass used with modulo to render projects with even-numbered ids with image and text on opposite sides from
+projects with odd-numbered ids
+
+*/
 
 @Component({
   selector: 'app-big-project',
   standalone: true,
-  imports: [NgFor, CommonModule],
+  imports: [NgFor, CommonModule, NgClass],
   template: `  
-  <div id="project-container-1" class="project-container mt-5">
+  <div id="project-container-{{bigProject.id}}" class="project-container mt-5">
     <div class="project-container-inner mx-auto position-relative d-flex flex-column">
-      <div class="project-image-container">    
-        <img class="project-image img-fluid" [src]="bigProject.image" alt={{bigProject.imageAlt}} aria-label="front page of Now Chemistry website" title="Now Chemistry website">
+      <div class="project-image-container" [ngClass]="bigProject.id % 2 === 0 ? 'd-flex justify-content-end' : ''">    
+        <img class="project-image img-fluid" [ngClass]="bigProject.id % 2 === 0 ? 'project-image-left' : ''" [src]="bigProject.image" alt={{bigProject.imageAlt}} aria-label="front page of Now Chemistry website" title="Now Chemistry website">
       </div>
-      <div class="project-text-box right px-4 py-3 rounded-4">
+      <div class="project-text-box px-4 py-3 rounded-4" [ngClass]="bigProject.id % 2 === 0 ? 'left' : 'right'">
         <h3 class="project-main-text">{{bigProject.title}}</h3>
         <p class="project-main-text mt-3">{{bigProject.description}}</p>
         <p class="project-skills-text">

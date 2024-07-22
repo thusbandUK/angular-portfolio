@@ -1,4 +1,780 @@
-:host {
+html,body
+{
+    width: 100%;
+    min-height: 100%;
+    margin: 0px;    
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+/* Variables */
+:root {
+    --text: rgb(255, 247, 244);    
+    --pinkText: rgb(244,154,194);
+    --highlightText: #7DEEF5;
+    --darkerBackground: rgb(39,39,39); 
+    --lighterBackground: rgb(18,61,87);
+    --darkBlue: #034C77;
+}
+
+.background {
+    background-color: var(--darkerBackground);
+}
+
+.navbar-brand {
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    color: var(--text);
+    --bs-gutter-x: 1.5em !important;
+    background-color: black;
+}
+
+H1, H2, H3, H4, H5, H6, a, .card .btn {
+    font-family: 'DM Mono', monospace;    
+}
+
+
+h2 {
+    font-size: 3.5rem;
+}
+a {
+   font-size: 0.95rem!important;
+}
+
+p {
+    font-family: 'DM Sans', sans-serif;    
+    letter-spacing: 0.01rem;
+}
+
+/*sizing of crediting text (in trio of smaller project intros)*/
+
+.credit {
+    font-size: 0.75rem;
+}
+
+
+.list {
+    list-style-type: none;  
+}
+
+.sub-title {
+    letter-spacing: 0.05rem;
+}
+
+/*text-boxes in main projects all screen sizes*/
+
+.project-container {
+    margin-top: 30%;
+    
+}
+
+.project-container h3 {
+    font-family: 'DM Sans', sans-serif !important;
+}
+
+.project-main-text {
+    color: #FFEDE9
+}
+
+.project-skills-text {
+    color: var(--text);
+    font-size: 0.9rem;
+    text-shadow: 2px 2px var(--darkerBackground);
+}
+
+.project-contact-button {
+    color: var(--text);    
+}
+
+/*RETURN AND DELETE THE -RIGHT ONE WHEN READY*/
+
+.project-text-box {
+    background-color: #034C77;
+}
+
+/*Buttons*/
+
+.btn {
+    --bs-btn-padding-x: 1rem;
+    --bs-btn-padding-y: 1rem;
+    --bs-btn-font-family: 'DM Sans', sans-serif;
+    --bs-btn-color: var(--highlightText);
+    --bs-btn-bg: transparent;
+    --bs-btn-border-width: 0.1rem;
+    --bs-btn-border-color: var(--highlightText);
+    --bs-btn-border-radius: 0;
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-hover-color: var(--pinkText);
+    --bs-btn-active-color: var(--pinkText);
+    --bs-btn-active-border-color: var(--pinkText);
+}
+
+/*Links*/
+
+.list-group-item {
+  --bs-list-group-color: var(--text);
+  --bs-list-group-bg: var(--darkerBackground);
+  --bs-list-group-border-color: var(--darkerBackground);
+  --bs-list-group-item-padding-x: 0%;
+  --bs-list-group-action-hover-color: var(--pinkText);
+  --bs-list-group-action-hover-bg: var(--darkerBackground);
+  --bs-list-group-action-active-color: var(--pinkText);
+  --bs-list-group-action-active-bg: var(--darkerBackground);
+  --bs-list-group-active-color: var(--pinkText);
+  --bs-list-group-active-bg: var(--darkerBackground);
+}
+ 
+  .list-group a:hover {
+    color: var(--pinkText);
+    text-decoration: underline;
+  }
+  
+  .list-group a:active {
+    color: var(--brown);
+    text-decoration: none;
+  }
+  
+  .list-group a:visited {
+    font-style: italic !important;
+  }
+
+
+/*Navbar*/
+
+header .navbar {    
+    width: 95%;
+    z-index: 10;
+}
+
+#navbar {
+    
+    position: fixed;
+    top: 0;    
+    display: block;
+    transition: top 0.3s;
+  }
+
+/*Not sure why disabled color has hashtag in front of it, but it throws an error w Angular*/
+
+.navbar {
+     
+     margin: auto;
+
+    --bs-navbar-color: var(--text);    
+    --bs-navbar-hover-color: var(--highlightText);
+    /*--bs-navbar-disabled-color: #{$navbar-dark-disabled-color};*/
+    --bs-navbar-active-color: var(--highlightText);
+    --bs-navbar-brand-color: var(--text);
+    --bs-navbar-brand-hover-color: var(--highlightText);
+    --bs-navbar-toggler-border-color: var(--pinkText);
+    --bs-border-color: var(--pinkText);
+}
+
+.navbar .container-fluid {
+    width: 87% !important;
+}
+
+.navbar {
+    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28254, 238, 233, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important;
+}
+
+.navbar-toggler {
+    color: var(--text)!important;
+}
+
+/*Sections*/
+
+/*Intro text*/
+
+#main-title h1 {
+    font-size: 6.5rem;
+    color: var(--pinkText);
+}
+
+/*About me*/
+
+#list-of-skills {
+    border-left: solid 0.03rem;
+    margin-left: 0.55rem;
+}  
+
+#list-of-skills h3 {
+    padding-left: 2rem;
+    
+}
+
+/*lightbox*/
+
+.minor-project-description-container {
+    margin: 4% 5% 0%;
+}
+
+.card {
+    --bs-card-border-width: 0.15rem;
+    --bs-card-border-color: var(--darkBlue);
+    --bs-card-bg: var(--darkerBackground);
+}
+
+.collapsible .card-body {
+    border-top: 0rem;
+}
+
+.collapsible .card {
+    --bs-card-border-width: 0rem;
+}
+
+.card-body {
+    --bs-card-bg: var(--darkerBackground);
+    --bs-card-color: var(--text);
+    --bs-card-spacer-x: 2.4rem;
+    --bs-card-spacer-y: 1.6rem;    
+    
+    border-top: solid 0.15rem var(--darkBlue);    
+
+}
+
+.card-heading {
+    font-family: 'DM Sans', sans-serif;;
+}
+
+.card btn {
+    font-family: 'DM-mono';
+}
+.card-body-inner {
+    background-color: var(--lighterBackground);    
+}
+
+#collapseExample3 .card-body-inner {
+    border-bottom: solid 0.4rem var(--lighterBackground);
+}
+
+.collapsible-white-inner {
+    background-color: white;
+    margin: 0.5rem 5rem 3rem;
+}
+
+.collapsible-heading {
+    margin: 1rem 5rem 0rem;
+    font-weight: bold;
+}
+
+.collapser {
+    display: flex;
+    flex-direction: row;
+}
+
+#collapsible-horoscope-container {
+   height: 50vw;
+   overflow-y: scroll;
+}
+
+.collapsible .card {
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+.collapsible .card-body {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-left: 0%;
+    padding-right: 0%;
+}
+
+.btn-close {
+    float: right;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    border: solid 0.04rem;
+    border-radius: 0px;
+  --bs-btn-color: var(--text);
+  --bs-btn-border-width: 0.04rem;
+    border-color: black;
+  --bs-btn-border-radius: 0px;
+}
+
+
+/*imported code from landing page offcut 1*/
+
+
+#middle-photo .carousel-item  {
+    transform: rotate(-90deg) !important;
+    transform-origin: left top;
+    height: 10rem;
+    width: 15rem;
+    overflow: hidden;      
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+#middle-photo, #right-photo, #left-photo {
+    height: 15rem;
+    width: 10rem;
+}
+
+/*make every container inherit the dimensions of its parent*/
+
+#left-photo .carousel-fade, .carousel-inner, #mobile-container {
+    width: inherit;
+    height: inherit;
+}
+
+#left-photo img {
+    width: 100%;
+    height: auto;
+}
+
+#left-photo .carousel-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#left-photo .carousel-inner, #right-photo .carousel-inner {
+    background: white;
+}
+
+#middle-photo .carousel-inner, #mobile-container {
+    width: inherit;
+    height: inherit;
+}
+
+/*little experiment going on right here, may need to restore middle photo carousel fade to the above after*/
+
+#middle-photo, #left-photo, #right-photo {
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    background: black;
+}
+    
+#middle-photo .carousel-fade, #left-photo .carousel-fade {
+    width: 98%;
+    height: 94%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+#right-photo #mobile-container {
+    width: 97%;
+    height: 91%;
+}
+
+#right-photo {
+    padding: 4% 2% 0%;
+}
+
+
+#right-photo .carousel-fade {
+    height: 100%;
+    width: 100%;
+}
+
+#right-photo .carousel-inner, #mobile-container {
+    width: inherit;
+    height: inherit;
+}
+
+.inner-container {
+    height: 25%;
+    width: 90%;
+}
+
+#right-photo img {
+    width: 100%;
+    height: auto;
+}
+
+#mobile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: white;    
+}
+
+.inner-container {    
+    outline: black solid 3px;
+}
+
+/*make the carousel item fill the carousel-item container */
+
+#middle-photo .carousel-item img {
+    width: auto;
+    height: 100%;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+/*Styling for get in touch section*/
+
+#get-in-touch {
+    margin-top: 10%;
+
+}
+
+#get-in-touch .list-group-item {
+    display: flex;
+    
+}
+
+#get-in-touch .list-group-item-action {
+    width: fit-content;
+}
+
+/*Styling for footer navbar*/
+
+footer .container-fluid {
+    margin-left: 10%;
+}
+
+footer a {
+    font-family: 'DM sans', sans-serif;
+    font-size: 1rem !important;
+}
+
+footer #navbarNav {
+    margin-right: 10.6%;
+}
+
+footer .navbar .container-fluid {
+    width: 100% !important;
+}
+
+/*Styling for privacy statement*/
+
+#privacy-statement-container {
+    color: var(--darkerBackground);
+}
+
+.privacy-list {
+    list-style-type: none;
+  margin: 0;
+  padding: 0;
+    list-style-type: square !important;
+    list-style-position: inside;
+}
+
+.privacy-list-item {
+    display: list-item !important;
+}
+
+.privacy-list-item p {
+    display: inline;
+}
+
+/*Media queries*/
+
+@media screen and (max-width: 450px) {
+    #get-in-touch .list-group {
+        display: flex;
+        flex-direction: column !important;        
+    }
+
+    .project-skills-text {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #trio-of-raven-landing-pages {
+        height: 150vh !important;
+    }
+
+    .collapsible-white-inner {
+        margin-left: 2.4rem;
+        margin-right: 2.4rem;
+
+    }
+
+    .collapsible-heading {
+        margin-left: 2.4rem;
+        margin-right: 2.4rem;
+    }
+}
+
+@media screen  and (max-device-width: 767px) and (orientation: portrait) {    
+
+    #desktop-container {
+        display: none;
+    }    
+       
+}
+
+@media screen and (min-width: 992px) {
+    #main-title {       
+        display: flex;        
+        margin-top: 9% !important;
+    }
+
+    .main-title-inner {
+        margin-left: 13% !important;        
+
+    }
+
+    #skills-container {
+        margin-left: 20%!important;
+    }
+
+    /*project boxes import*/
+    .project-container {
+        margin-bottom: 30%;        
+        height: fit-content;        
+    }
+    
+    .project-container-inner {
+        width: 85%;        
+    }
+
+    .project-text-box {
+        position: absolute;        
+        top: 10%;        
+        width: 400px;        
+        top: 320%;
+        margin: 0rem !important;
+        margin-top: -100vw !important;        
+        height: fit-content;  
+    }
+
+    .right {
+        right: 5%;
+    }
+
+    .project-image-left {
+        margin-right: 5% !important;
+    }    
+    
+    .project-image {
+        box-shadow: -1em 1em 0.3em rgba(0,0,0, 0.6);        
+        height: 70vh;
+        max-width: 100%;        
+    }
+
+/*Makes the trio of smaller project intros have nice margins on the left and right on large screens only*/
+    .trio-smaller-project-intros {       
+        display: flex;
+        justify-content: space-between;
+    }
+    #collapser1 {
+        margin-left: 10%;        
+    }
+
+    #collapser3 {
+        margin-right: 10%;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    /*Making the light boxes stack under the corresponding project text box for when they all stack on top of each other*/
+
+#collapser1 {
+    order: 1;
+}
+
+#collapser2 {
+    order: 3;
+}
+
+#collapser3 {
+    order: 5;
+}
+
+#collapseExample1 {
+    order: 2;
+}
+
+#collapseExample2 {
+    order: 4;
+}
+
+#collapseExample3 {
+    order: 6;
+}
+
+/*Main heading for mobiles*/
+
+#main-title h1 {
+    font-size: 3rem;
+    margin-top: 20%;
+}
+
+}
+
+@media screen and (max-width: 510px) {
+    #main-title h1 {
+        font-size: 3rem;
+        margin-top: 30%;
+    }
+    
+}
+
+@media screen and (max-width: 200px) {
+    #main-title h1 {
+        font-size: 3rem;
+        margin-top: 40%;
+    }
+    
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+
+
+    /*Position incl margins for trio of smaller projects on tablets*/
+    .trio-smaller-project-intros {
+        display: flex;
+        justify-content: center;        
+    }
+
+    .card {
+        margin: 0%;
+    }
+    .collapser {
+        margin: 3.5% 3.5% 0%;
+    }
+
+    /*Making the light boxes stack under the corresponding project text box for when they all stack on top of each other*/
+
+#collapser1 {
+    order: 1;
+}
+
+#collapser2 {
+    order: 2;
+}
+
+#collapser3 {
+    order: 5;
+}
+
+#collapseExample1 {
+    order: 3;
+}
+
+#collapseExample2 {
+    order: 4;
+}
+
+#collapseExample3 {
+    order: 6;
+}
+
+/*Main heading for tablets*/
+
+#main-title h1 {
+    font-size: 5rem;
+    margin-top: 10%;
+}
+
+}
+
+/*Collapse experiment*/
+@media screen and (max-width: 992px) {
+
+
+/*Giving all the boxes a little padding for tablet and mobile views*/
+
+.text-start {
+    padding: 0% 5%;
+}
+
+/*Tablet and mobile stacking of main project screenshot and text box*/
+
+.project-container-inner {
+    flex-direction: column;
+
+}
+
+/*Header nav bar*/
+
+#navbar .container-fluid {
+    margin-left: 5%;
+    padding-left: 0%;
+    padding-right: 5%;
+    width: 100% !important;
+}
+
+/*footer nav bar*/
+
+footer .navbar .container-fluid {
+    margin-left: 5%;
+    padding-left: 0%;
+    padding-right: 5%;
+    width: 100% !important;
+}
+
+.project-image-container, .project-text-box {
+    margin: 2% 5%;
+}
+
+
+}
+
+/*Project boxes*/
+
+@media screen and (min-width: 992px) and (max-width: 1174px) {
+
+/*RETURN AND DELETE -RIGHT ONE*/
+
+.project-text-box {
+    position: absolute;
+    top: 60%;
+    width: 80%;
+    margin-top: 5% !important;
+}
+
+.project-container {
+    margin-bottom: 30% !important;
+}
+
+}
+
+@media screen and (min-width: 1440px) {
+    .project-container {
+        margin-bottom: 10% !important;
+        height: fit-content;        
+    }
+
+}
+
+@media screen and (min-width: 1174px) and (max-width: 1440px) {
+    .project-container {
+        margin-bottom: 20% !important;        
+        height: fit-content;
+        
+    }
+
+}
+
+@media screen and (min-width: 1174px) and (max-width: 1250px) {
+    .project-text-box {
+        position: absolute;
+        top: 45%;
+        width: 80%;
+        margin-top: 5% !important;
+    }
+
+}
+
+@media screen and (min-width: 1250px) and (max-width: 1350px) {    
+
+    .project-container {
+        margin-bottom: 30% !important;
+
+    }
+}
+
+
+/*:host {
     --content-padding: 10px;
   }
   header {
@@ -9,4 +785,4 @@
   }
   .content {
     padding: var(--content-padding);
-  }
+  }*/
