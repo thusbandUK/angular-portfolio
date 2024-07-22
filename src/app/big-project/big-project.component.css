@@ -86,7 +86,10 @@ p {
 }
 
 .project-contact-button {
-    color: var(--text);    
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem !important;
+    letter-spacing: 0.02rem;
 }
 
 /*RETURN AND DELETE THE -RIGHT ONE WHEN READY*/
