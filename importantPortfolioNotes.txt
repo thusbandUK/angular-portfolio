@@ -8,13 +8,14 @@ for other elements, esp button linking to external website of project
 
 links shouldn't be buttons, links should be links
 
-update css across project - you need to figure out how to get even-numbered bigProjects to render on the other side of the screen. 
-In the static site much of the work is completed by including or omitting specific class names. There is a way to conditionally
-render different classes, possibly using ngClass (needs importing? configuring in the exports?)
+update css across project - compartmentalise the css by component, big-project, navbar, about-me, etc.
 
 ensure that all of the class names and IDs (css) are represented in the elements - could include root index.html file etc.
 
+update the github / linkedin etc. icons all to come from the bootstrap system instead of the other one, although note that the 
+star comes from the other service, so you might need both
 install and configure the service that enables the FB, insta, github etc icons
+bootstrap can do stars: https://icons.getbootstrap.com/icons/star/
 
-create objects for other big projects
+
 
