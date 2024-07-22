@@ -6,12 +6,13 @@ import { FooterComponent } from './footer/footer.component';
 import { MainTitleComponent } from './main-title/main-title.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { BigProjectContainerComponent } from './big-project-container/big-project-container.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent, ContactComponent],
   template: `
     <header>
       <app-navbar></app-navbar>
@@ -25,6 +26,9 @@ import { BigProjectContainerComponent } from './big-project-container/big-projec
       </section>
       <section id="projects">
         <app-big-project-container></app-big-project-container>        
+      </section>
+      <section id="get-in-touch">
+        <app-contact></app-contact>
       </section>
     </main>
     <footer>
