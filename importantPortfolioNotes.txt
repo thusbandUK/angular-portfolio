@@ -1,5 +1,14 @@
 need to 
 
+to render different components in each of the bonus material sections, I think you need to make use of
+Using NgComponentOutlet
+https://angular.dev/guide/components/programmatic-rendering
+it works! like so: <ng-container *ngComponentOutlet="getBioComponent(bigProject.id)" /> 
+so you store a string which will be the argument passed to the function and then in the class definition, you create
+the function (switch?) that loads the corresponding function =)
+
+
+
 create a new portfolio repo
 create an agile todo list in github repo
 
@@ -7,6 +16,10 @@ modify bigProject service to provide aria-labels and titles for existing element
 for other elements, esp button linking to external website of project
 
 links shouldn't be buttons, links should be links
+
+various animation things need fixing, specifically the light box and mobile / tablet menu toggler, also, disappearing upper
+nav bar, which may or may not link with the fact that when you navigate to a section, its title scrolls up behind the
+navbar
 
 update css across project - compartmentalise the css by component, big-project, navbar, about-me, etc.
 

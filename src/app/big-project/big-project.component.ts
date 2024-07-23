@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { BigProjectStructure } from '../bigProjectStructure';
-import {CommonModule, NgFor, NgClass} from '@angular/common';
+import {CommonModule, NgFor, NgClass, NgComponentOutlet} from '@angular/common';
+
 
 /*
 Renders each big project from bigProject.service.ts
@@ -15,7 +16,7 @@ projects with odd-numbered ids
 @Component({
   selector: 'app-big-project',
   standalone: true,
-  imports: [NgFor, CommonModule, NgClass],
+  imports: [NgFor, CommonModule, NgClass, NgComponentOutlet],
   template: `  
   <div id="project-container-{{bigProject.id}}" class="project-container mt-5">
     <div class="project-container-inner mx-auto position-relative d-flex flex-column">
@@ -27,7 +28,7 @@ projects with odd-numbered ids
         <p class="project-main-text mt-3">{{bigProject.description}}</p>
         <p class="project-skills-text">
           &lt;/&gt;
-        </p>
+        </p>        
         <div class="project-skills-text d-flex justify-content-between">
           <p *ngFor="let item of bigProject.skills">{{item}}</p>          
           <a class="nav-link px-lg-1" href={{bigProject.githubUrl}} aria-label="link to Now Chemistry Github repository" title="link to Now Chemistry Github repository" target="_blank"><i class="bi bi-github project-main-text"></i></a>
@@ -42,7 +43,7 @@ projects with odd-numbered ids
   styleUrl: './big-project.component.css'
 })
 export class BigProjectComponent {
-  @Input() bigProject!: BigProjectStructure;
+  @Input() bigProject!: BigProjectStructure; 
 
   openLink(s: string){
     window.open(s,'_blank');

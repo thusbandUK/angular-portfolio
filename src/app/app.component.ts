@@ -7,12 +7,13 @@ import { MainTitleComponent } from './main-title/main-title.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { BigProjectContainerComponent } from './big-project-container/big-project-container.component';
 import { ContactComponent } from './contact/contact.component';
+import { BonusMaterialContainerComponent } from './bonus-material-container/bonus-material-container.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent, ContactComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent, ContactComponent, BonusMaterialContainerComponent],
   template: `
     <header>
       <app-navbar></app-navbar>
@@ -27,9 +28,12 @@ import { ContactComponent } from './contact/contact.component';
       <section id="projects">
         <app-big-project-container></app-big-project-container>        
       </section>
+      <section id="bonus-material">
+        <app-bonus-material-container></app-bonus-material-container>
+      </section>      
       <section id="get-in-touch">
         <app-contact></app-contact>
-      </section>
+      </section>      
     </main>
     <footer>
       <app-footer></app-footer>
