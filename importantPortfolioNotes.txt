@@ -7,6 +7,11 @@ it works! like so: <ng-container *ngComponentOutlet="getBioComponent(bigProject.
 so you store a string which will be the argument passed to the function and then in the class definition, you create
 the function (switch?) that loads the corresponding function =)
 
+Need to import all the animations and configure them. The BonusMaterials each need to use their id values to create 
+unique but matching ids across the different collapsible codes
+
+Need individual functions for the contents of each bonus material, which can be activated in ng-containers (as above)
+
 
 
 create a new portfolio repo

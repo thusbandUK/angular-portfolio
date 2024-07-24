@@ -25,7 +25,7 @@ import { BonusStructure } from '../bonusStructure';
                 <!--drop down button-->
                 <p class="w-100">
                   
-                  <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+                  <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseExample'+bonusMaterial.id" aria-expanded="false" aria-controls="collapseExample1">
                     View demo
                   </button>
                   
@@ -37,13 +37,13 @@ import { BonusStructure } from '../bonusStructure';
         </div>
       </div>
 
-      <div class="accordion-collapse collapse collapsible col-12" id="collapseExample3"  data-bs-parent="#accordionParent">
+      <div class="accordion-collapse collapse collapsible col-12" id="collapseExample{{bonusMaterial.id}}"  data-bs-parent="#accordionParent">
   <div class="card ">
     <div class="card-body">
     <div class="card-body-inner lighterbackground rounded-3">
       <div class="collapsible-heading-button d-flex justify-content-between">
         <p class="collapsible-heading">Random horoscope generator</p>
-        <button type="button" class="btn-close btn-close-white" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseExample'+bonusMaterial.id" aria-label="Close"></button>
       </div>
       <div class="collapsible-white-inner" id="collapsible-horoscope-container">
         
@@ -71,3 +71,7 @@ export class BonusMaterialComponent {
   @Input() bonusMaterial!: BonusStructure;
 
 }
+
+/*
+ data-bs-target="#collapseExample{bonusMaterial.id}"
+*/
