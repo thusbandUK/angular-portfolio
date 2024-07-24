@@ -15,10 +15,14 @@ import { NgFor } from '@angular/common';
         <h2>Bonus material</h2>
       </div>
     </div> <!--section title ends-->
-    <app-bonus-material    
+    <div class="row trio-smaller-project-intros accordian" id="accordionParent">
+      <app-bonus-material
+        class="col-lg-3 col-md-5 collapser accordion-item"
+         id="collapser{{bonusMaterial.id}}"
         *ngFor="let bonusMaterial of bonusList"
         [bonusMaterial]="bonusMaterial"    
-    ></app-bonus-material>
+      ></app-bonus-material>
+    </div>
   `,
   styleUrl: './bonus-material-container.component.css'
 })

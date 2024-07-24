@@ -7,8 +7,9 @@ import { BonusStructure } from '../bonusStructure';
   imports: [],
   template: `
   <!--Collapser parent-->
-    <div class="row trio-smaller-project-intros accordian" id="accordionParent">
-      <div class="col-lg-3 col-md-5 collapser accordion-item" id="collapser1">
+    <!--<div class="row trio-smaller-project-intros accordian" id="accordionParent">-->
+      <!--<div class="col-lg-3 col-md-5 collapser accordion-item" id="collapser1">-->
+      <!--<div>-->
         <div class="card shadow-sm minor-project-description-container m-lg-2 rounded-4">
           
           <div>
@@ -34,8 +35,8 @@ import { BonusStructure } from '../bonusStructure';
               
             </div>
           </div>
-        </div>
-      </div>
+        <!--</div>-->
+      <!--</div>-->
 
       <div class="accordion-collapse collapse collapsible col-12" id="collapseExample{{bonusMaterial.id}}"  data-bs-parent="#accordionParent">
   <div class="card ">
