@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+/*
+This was here for fonts and it'll probably be needed again, revisit after installing ng-bootstrap*/
 @import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 

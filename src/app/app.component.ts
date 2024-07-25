@@ -8,12 +8,13 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { BigProjectContainerComponent } from './big-project-container/big-project-container.component';
 import { ContactComponent } from './contact/contact.component';
 import { BonusMaterialContainerComponent } from './bonus-material-container/bonus-material-container.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent, ContactComponent, BonusMaterialContainerComponent],
+  imports: [NgbModule, RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent, ContactComponent, BonusMaterialContainerComponent],
   template: `
     <header>
       <app-navbar></app-navbar>
