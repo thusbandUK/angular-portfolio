@@ -3,11 +3,11 @@ import { BonusMaterialComponent } from '../bonus-material/bonus-material.compone
 import { BonusService } from '../bonus.service';
 import { BonusStructure } from '../bonusStructure';
 import { NgFor } from '@angular/common';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-bonus-material-container',
   standalone: true,
-  imports: [BonusMaterialComponent, NgFor],
+  imports: [BonusMaterialComponent, NgFor, NgbModule],
   template: `
     <!--Section title-->
     <div class="text-start mt-5 mb-5 mx-auto">
@@ -23,6 +23,19 @@ import { NgFor } from '@angular/common';
         [bonusMaterial]="bonusMaterial"    
       ></app-bonus-material>
     </div>
+    <!--Accordian eg-->
+   <div ngbAccordion>
+  <div ngbAccordionItem>
+    <h2 ngbAccordionHeader>
+      <button ngbAccordionButton>First</button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody>
+        <ng-template>Content for the first item</ng-template>
+      </div>
+    </div>
+  </div>
+</div>
   `,
   styleUrl: './bonus-material-container.component.css'
 })
