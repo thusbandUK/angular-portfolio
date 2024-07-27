@@ -1,5 +1,7 @@
 need to 
 
+finish configuring collapse regions - see exemplar in bonus material container component
+
 to render different components in each of the bonus material sections, I think you need to make use of
 Using NgComponentOutlet
 https://angular.dev/guide/components/programmatic-rendering

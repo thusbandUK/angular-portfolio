@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         <h2>Bonus material</h2>
       </div>
     </div> <!--section title ends-->
+    <!--container of trio of bonus material components 1-->
     <div class="row trio-smaller-project-intros accordian" id="accordionParent">
       <app-bonus-material
         class="col-lg-3 col-md-5 collapser accordion-item"
@@ -23,19 +24,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         [bonusMaterial]="bonusMaterial"    
       ></app-bonus-material>
     </div>
+    <!--container of trio of bonus material components 1 ends-->
     <!--Accordian eg-->
    <div ngbAccordion>
-  <div ngbAccordionItem>
-    <h2 ngbAccordionHeader>
-      <button ngbAccordionButton>First</button>
-    </h2>
-    <div ngbAccordionCollapse>
-      <div ngbAccordionBody>
-        <ng-template>Content for the first item</ng-template>
-      </div>
-    </div>
-  </div>
-</div>
+     <div ngbAccordionItem>
+       <h2 ngbAccordionHeader>
+         <button ngbAccordionButton>First</button>
+       </h2>
+     <div ngbAccordionCollapse>
+     <div ngbAccordionBody>
+       <ng-template>Content for the first item</ng-template>
+     </div>
+   </div>
+   <!--COPY OF container of trio of bonus material components 1--> 
+
+   <!--COPY OF container of trio of bonus material components 1 ENDS-->
+ 
   `,
   styleUrl: './bonus-material-container.component.css'
 })
