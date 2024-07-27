@@ -31,12 +31,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
        <h2 ngbAccordionHeader>
          <button ngbAccordionButton>First</button>
        </h2>
-     <div ngbAccordionCollapse>
-     <div ngbAccordionBody>
-       <ng-template>Content for the first item</ng-template>
+       <div ngbAccordionCollapse>
+         <div ngbAccordionBody>
+           <ng-template>Content for the first item</ng-template>
+         </div>
+       </div>
      </div>
    </div>
    <!--COPY OF container of trio of bonus material components 1--> 
+   <div class="row trio-smaller-project-intros accordian" id="accordionParent">
+      <app-bonus-material
+        class="col-lg-3 col-md-5 collapser accordion-item"
+         id="collapser{{bonusMaterial.id}}"
+        *ngFor="let bonusMaterial of bonusList"
+        [bonusMaterial]="bonusMaterial"    
+      ></app-bonus-material>
+    </div>
 
    <!--COPY OF container of trio of bonus material components 1 ENDS-->
  
