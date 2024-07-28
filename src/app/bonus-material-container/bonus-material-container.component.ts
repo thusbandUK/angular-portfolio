@@ -30,10 +30,10 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
       ></app-bonus-material>
     </div>
     <!--container of trio of bonus material components 1 ends-->
-    <!--Accordion eg-->
-   <div ngbAccordion class="d-flex w-100"  #accordion="ngbAccordion">
+    <!--Accordion eg--><!--
+   <div ngbAccordion class="d-flex w-100"  #accordion="ngbAccordion"><!--
    
-     <!--<div ngbAccordionItem  ngbAccordionItem={{accordionItem.id}}>-->
+     <!--<div ngbAccordionItem  ngbAccordionItem={{accordionItem.id}}>--><!--
      
        <app-accordion-test 
        
@@ -50,47 +50,29 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
            <ng-template>Content for the {{item}} item</ng-template>
          </div>
        </div>
-     </div>-->
-    </div>
+     </div>--><!--
+    </div>-->
 
-    <!--Another accordion example--><!--
-    <div ngbAccordion>
-  <div ngbAccordionItem>
-    <h2 ngbAccordionHeader>
-      <button ngbAccordionButton>First</button>
-    </h2>
-    <div ngbAccordionCollapse>
-      <div ngbAccordionBody>
-        <ng-template>Content for the first item</ng-template>
+    <!--Another accordion example-->
+    <div ngbAccordion class="d-flex flex-row">
+      <div ngbAccordionItem
+        *ngFor="let accordionItem of accordionList"
+        [ngbAccordionItem]="accordionItem.id"    
+      >
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>{{accordionItem.id}}</button>
+        </h2>
+        <div>
+          <app-accordion-test            
+            [accordionItem]="accordionItem" 
+             ngbAccordionCollapse
+          >
+          </app-accordion-test>
+        </div>
       </div>
-    </div>
-  </div>
-</div>-->
 <!--Another accordion example ENDS-->
-<!--Still another accordion example--><!--
-<div ngbAccordion [closeOthers]="true">
-	@for (item of items2; track item) {
-		<div ngbAccordionItem [collapsed]="item !== 'First'">
-			<h2 ngbAccordionHeader>
-				<button ngbAccordionButton>{{ item }}</button>
-			</h2>
-			<div ngbAccordionCollapse>
-				<div ngbAccordionBody>
-					<ng-template>
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-						officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
-						wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-						Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
-						excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-						you probably haven't heard of them accusamus labore sustainable VHS.
-					</ng-template>
-				</div>
-			</div>
-		</div>
-	}
-</div>-->
-<!--Still another accordion example ENDS-->
-   
+
+   </div>
    
  
   `,
@@ -117,3 +99,30 @@ export class BonusMaterialContainerComponent {
   items2 = ['First', 'Second', 'Third'];
 
 }
+
+
+/*
+<!--Still another accordion example-->
+<div ngbAccordion [closeOthers]="true">
+	@for (item of items2; track item) {
+		<div ngbAccordionItem [collapsed]="item !== 'First'">
+			<h2 ngbAccordionHeader>
+				<button ngbAccordionButton>{{ item }}</button>
+			</h2>
+			<div ngbAccordionCollapse>
+				<div ngbAccordionBody>
+					<ng-template>
+						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+						officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
+						wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+						Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+						excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
+						you probably haven't heard of them accusamus labore sustainable VHS.
+					</ng-template>
+				</div>
+			</div>
+		</div>
+	}
+</div>
+<!--Still another accordion example ENDS-->
+*/
