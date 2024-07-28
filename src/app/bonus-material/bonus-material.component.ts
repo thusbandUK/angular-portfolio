@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { BonusStructure } from '../bonusStructure';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-bonus-material',
   standalone: true,
-  imports: [],
+  imports: [NgbModule],
   template: `
   <!--Collapser parent-->
     <!--<div class="row trio-smaller-project-intros accordian" id="accordionParent">-->

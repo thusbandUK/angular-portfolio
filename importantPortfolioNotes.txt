@@ -1,5 +1,15 @@
 need to 
 
+Not tons of progress on this one but I think you need to globally configure the accordion thingies. (Ask for 
+help on StackExchange!)
+
+This is very difficult and there's really only one way to do it. You need to build it up from a simpler structure.
+Make a new container component and make a new feature component and experiment with having the accordian opening
+div a) in the parent component with the button and accordian content material in the child component and b) with
+different children each marking out their own collapsible content (which probably needs to be configured with 
+unique id refs generated from id)
+
+
 finish configuring collapse regions - see exemplar in bonus material container component
 
 to render different components in each of the bonus material sections, I think you need to make use of
