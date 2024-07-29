@@ -7,12 +7,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AccordionTestComponent } from '../accordion-test/accordion-test.component';
 import { AccordionTestStructure } from '../accordionTestStructure';
 import { AccordionService } from '../accordion.service';
-import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
+import { AccordionToggleComponent } from '../accordion-toggle/accordion-toggle.component';
 
 @Component({
   selector: 'app-bonus-material-container',
   standalone: true,
-  imports: [BonusMaterialComponent, NgFor, NgbModule, AccordionTestComponent, NgbAccordionModule],
+  imports: [BonusMaterialComponent, NgFor, NgbModule, AccordionTestComponent, NgbAccordionModule, AccordionToggleComponent],
   template: `
     <!--Section title-->
     <div class="text-start mt-5 mb-5 mx-auto">
@@ -30,30 +31,64 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
       ></app-bonus-material>
     </div>
     <!--container of trio of bonus material components 1 ends-->
-    <!--Accordion eg--><!--
-   <div ngbAccordion class="d-flex w-100"  #accordion="ngbAccordion"><!--
-   
-     <!--<div ngbAccordionItem  ngbAccordionItem={{accordionItem.id}}>--><!--
-     
-       <app-accordion-test 
-       
-        *ngFor="let accordionItem of accordionList; track accordionItem" [accordionItem]="accordionItem"
-         [ngbAccordionItem]="accordionItem.id"
-         ngbAccordionItem
-         [id]="accordionItem.id"
-        ></app-accordion-test>
-       <!--<h2 ngbAccordionHeader>
-         <button ngbAccordionButton>{{item}}</button>
-       </h2>
-       <div ngbAccordionCollapse>
-         <div ngbAccordionBody>
-           <ng-template>Content for the {{item}} item</ng-template>
-         </div>
-       </div>
-     </div>--><!--
-    </div>-->
 
-    <!--Another accordion example-->
+    <!--copy of container of trio of bonus material components 1-->
+    <div ngbAccordion class="row trio-smaller-project-intros accordion" #accordion="ngbAccordion">
+      <app-bonus-material
+         class="col-lg-3 col-md-5 collapser accordion-item"
+         id="collapser{{bonusMaterial.id}}"
+        *ngFor="let bonusMaterial of bonusList"
+        [bonusMaterial]="bonusMaterial"
+        (toggleSend)="accordion.toggle($event)"
+      ></app-bonus-material>
+
+      <div 
+        *ngFor="let bonusMaterial of bonusList"
+        [ngbAccordionItem]="bonusMaterial.id.toString()"
+      >
+        <div ngbAccordionCollapse>
+			    <div ngbAccordionBody>
+				    <ng-template>
+              
+					    <!--<div class="accordion-collapse collapse collapsible col-12" id="collapseExample3"  data-bs-parent="#accordionParent">-->
+              <div class="accordion-collapse collapsible col-12" >  
+              <div class="card ">
+                  <div class="card-body">
+                    <div class="card-body-inner lighterbackground rounded-3">
+                      <div class="collapsible-heading-button d-flex justify-content-between">
+                        <p class="collapsible-heading">{{bonusMaterial.heading}}</p>
+                        <!--<button type="button" class="btn-close btn-close-white" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-label="Close"></button>-->
+                        <button type="button" class="btn-close btn-close-white" (click)="accordion.collapseAll()" aria-label="Close"></button>
+                      </div>
+                      <div class="collapsible-white-inner" id="collapsible-horoscope-container">
+        
+                        <!--horoscope generator code starts--><!--
+
+                        <h3>INSERT HEADING</h3>
+  
+                        <div id="horoscope-container">
+                          <div id="horoscope-text-holder">
+                            <p id="text"></p>
+                          </div>
+                          <img id="planets-image" alt="cartoon planets" src="images/cartoon planets.jpg" onClick="printText();">
+                        </div>
+
+                        <!--horoscope generator code finishes-->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+				    </ng-template>
+			    </div>
+		    </div>
+      </div>
+    <!--copy of container of trio of bonus material components 1 ends-->
+
+    <app-accordion-toggle></app-accordion-toggle>
+    
+
+    <!--Another accordion example--><!--
     <div ngbAccordion class="d-flex flex-row">
       <div ngbAccordionItem
         *ngFor="let accordionItem of accordionList"
@@ -69,14 +104,20 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
           >
           </app-accordion-test>
         </div>
-      </div>
+      </div>-->
 <!--Another accordion example ENDS-->
 
-   </div>
+
+
+   
+   
+   
+   
    
  
   `,
-  styleUrl: './bonus-material-container.component.css'
+  styleUrl: './bonus-material-container.component.css',
+  providers: [NgbAccordionConfig],
 })
 export class BonusMaterialContainerComponent {
 
@@ -87,21 +128,41 @@ export class BonusMaterialContainerComponent {
   bonusService: BonusService = inject(BonusService);
   accordionService: AccordionService = inject(AccordionService);
   
-  constructor() {    
+  constructor(accordion: NgbAccordionModule) {    
     this.bonusList = this.bonusService.getAllBonusMaterials();
     this.accordionList = this.accordionService.getAllAccordionId();
+    //console.log(config)
+    console.log(accordion)
+    
   }  
   
+  
+  
+
   bonusList: BonusStructure[] = [];
   accordionList: AccordionTestStructure[] = []
 
   items: AccordionTestStructure[] = [];
   items2 = ['First', 'Second', 'Third'];
 
+
+
 }
 
 
 /*
+
+<div ngbAccordion>
+     
+   <div ngbAccordionCollapse>
+       <div ngbAccordionBody>
+           <ng-template>Hello</ng-template>
+      </div>
+
+     </div>
+
+   </div>
+   
 <!--Still another accordion example-->
 <div ngbAccordion [closeOthers]="true">
 	@for (item of items2; track item) {

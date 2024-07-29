@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, output } from '@angular/core';
 import { BonusStructure } from '../bonusStructure';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-bonus-material',
   standalone: true,
-  imports: [NgbModule],
+  imports: [NgbModule, NgbAccordionModule],
   template: `
   <!--Collapser parent-->
     <!--<div class="row trio-smaller-project-intros accordian" id="accordionParent">-->
@@ -25,13 +26,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
             <div class="d-flex justify-content-between align-items-center mt-1">
               <div class="btn-group w-100">
                 <!--drop down button-->
+                <!--<div ngbAccordion #accordion="ngbAccordion"></div>-->
                 <p class="w-100">
                   
-                  <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseExample'+bonusMaterial.id" aria-expanded="false" aria-controls="collapseExample1">
+                  <!--<button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseExample'+bonusMaterial.id" aria-expanded="false" aria-controls="collapseExample1">-->
+                  
+                  <button class="btn btn-primary w-100" type="button" (click)="toggleClick(bonusMaterial.id.toString())">
                     View demo
                   </button>
                   
+                  
                 </p>
+                
+                
               </div>
               
             </div>
@@ -45,7 +52,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     <div class="card-body-inner lighterbackground rounded-3">
       <div class="collapsible-heading-button d-flex justify-content-between">
         <p class="collapsible-heading">Random horoscope generator</p>
-        <button type="button" class="btn-close btn-close-white" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseExample'+bonusMaterial.id" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" (click)="customCollapseClick()" aria-label="Close"></button>
       </div>
       <div class="collapsible-white-inner" id="collapsible-horoscope-container">
         
@@ -71,6 +78,23 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class BonusMaterialComponent {
   @Input() bonusMaterial!: BonusStructure;
+
+  toggleSend = output<string>()    // OutputEmitterRef<string>
+
+  toggleClick(id: string){
+    this.toggleSend.emit(id);    
+  }  
+
+  customCollapseAll = output()
+
+  customCollapseClick(){
+    this.customCollapseAll.emit();
+  }
+
+  //(click)="accordion.collapseAll()"
+  constructor(){
+    
+  }
 
 }
 
