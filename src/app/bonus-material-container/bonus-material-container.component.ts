@@ -22,9 +22,14 @@ import { AlternativeStylingComponent } from '../alternative-styling/alternative-
       </div>
     </div> <!--section title ends-->
     
-<div ngbAccordion #accordion="ngbAccordion">
-    <!--container of trio of bonus material introductory cards-->
-    <div class="row trio-smaller-project-intros acccordion">    
+    <!--the ngbAccordion div contains both the bonusMaterial (BM) intro cards and the BM collapsible content.
+    Notice that it also acts as the flex container, rendering the cards 3 columns to a desktop page. This is
+    important both for the above-described styling but also for the div to have display flex, which enables the
+    BM intro cards and collapsible materials to be rendered in a different order depending on whether they are being
+    viewed on a smaller or larger screen-->
+<div ngbAccordion #accordion="ngbAccordion"  [closeOthers]="true" class="row trio-smaller-project-intros">
+    
+    <!--<div class="row trio-smaller-project-intros acccordion">-->    
       <app-bonus-material
          class="col-lg-3 col-md-5 collapser accordion-item accordion"
          id="collapseDisplayer{{bonusMaterial.id}}"
@@ -32,7 +37,7 @@ import { AlternativeStylingComponent } from '../alternative-styling/alternative-
         [bonusMaterial]="bonusMaterial"
         (toggleSend)="accordion.toggle($event)"
       ></app-bonus-material>
-    </div><!--this might need to be moved for the ordering css to work-->
+    <!--</div>--><!--this might need to be moved for the ordering css to work-->
     
     
     

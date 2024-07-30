@@ -1,9 +1,7 @@
 need to 
 
-Ordering the elements is difficult because the trio of bonusMaterial intro cards is in a different container to the trio of
-unique content, but putting them in the same container stops the accordion animation working.
-
-try making 3 separate accordion units
+ensure stylings consistent throughout css (note: this might automatically fix the styling error that has occurred which is that
+the margins are too narrow for the bonusMaterial intro cards)
 
 style:
 previous names:
@@ -18,7 +16,7 @@ new name:
 #collapsibleContent
 
 
-try getting the bonusMaterial items outside of the accordion highest parent div
+import code from static project for unique bonus material collapsibles
 
 check the docs to configure for only one open at once
 
