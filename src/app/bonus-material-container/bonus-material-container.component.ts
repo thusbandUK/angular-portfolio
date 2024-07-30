@@ -2,15 +2,18 @@ import { Component, inject } from '@angular/core';
 import { BonusMaterialComponent } from '../bonus-material/bonus-material.component';
 import { BonusService } from '../bonus.service';
 import { BonusStructure } from '../bonusStructure';
-import { NgFor } from '@angular/common';
+import { NgFor, NgComponentOutlet } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
+import { HoroscopeComponent } from '../horoscope/horoscope.component';
+import { ScenarioWheelComponent } from '../scenario-wheel/scenario-wheel.component';
+import { AlternativeStylingComponent } from '../alternative-styling/alternative-styling.component';
 
 
 @Component({
   selector: 'app-bonus-material-container',
   standalone: true,
-  imports: [BonusMaterialComponent, NgFor, NgbModule, NgbAccordionModule],
+  imports: [BonusMaterialComponent, NgFor, NgbModule, NgbAccordionModule, NgComponentOutlet, HoroscopeComponent, ScenarioWheelComponent, AlternativeStylingComponent],
   template: `
     <!--Section title-->
     <div class="text-start mt-5 mb-5 mx-auto">
@@ -20,7 +23,7 @@ import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstr
     </div> <!--section title ends-->
     
 
-    <!--copy of container of trio of bonus material components 1-->
+    <!--container of trio of bonus material introductory cards-->
     <div class="row trio-smaller-project-intros accordion">
       <app-bonus-material
          class="col-lg-3 col-md-5 collapser accordion-item accordion"
@@ -30,6 +33,8 @@ import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstr
         (toggleSend)="accordion.toggle($event)"
       ></app-bonus-material>
     </div>
+
+    <!--container of trio of bonus material collapsible sections-->
     <div ngbAccordion #accordion="ngbAccordion">
       <div 
         *ngFor="let bonusMaterial of bonusList"
@@ -51,6 +56,11 @@ import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstr
                       </div>
                       <div class="collapsible-white-inner" id="collapsible-horoscope-container">
         
+                        <ng-container 
+                        *ngComponentOutlet="getBonusContent(bonusMaterial.componentReference)" 
+                        
+                        />
+                        
                         <!--horoscope generator code starts--><!--
 
                         <h3>INSERT HEADING</h3>
@@ -77,6 +87,25 @@ import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstr
   providers: [NgbAccordionConfig],
 })
 export class BonusMaterialContainerComponent {
+
+  getBonusContent(id: string){    
+    
+    switch(id){
+      case "scenarioWheel": {
+        return ScenarioWheelComponent;
+        break;}
+      case "horoscope": {
+        return HoroscopeComponent;
+        break;}
+      case "alternativeStyling": {
+        return AlternativeStylingComponent;
+        break;}
+      default: {
+        return null;
+      }
+    }   
+    
+  }
 
   printText(){
     console.log('print text function works!');
@@ -105,7 +134,7 @@ export class BonusMaterialContainerComponent {
       ></app-bonus-material>
     </div>-->
     <!--container of trio of bonus material components 1 ends-->
-    
+
 <div ngbAccordion>
      
    <div ngbAccordionCollapse>
