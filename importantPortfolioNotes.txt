@@ -1,28 +1,18 @@
 need to 
 
-ensure stylings consistent throughout css (note: this might automatically fix the styling error that has occurred which is that
-the margins are too narrow for the bonusMaterial intro cards)
-
-style:
-previous names:
-
-#collapser3
-
-#collapseExample1
-
-new name:
-
-#collapseDisplayer
-#collapsibleContent
-
+sort navbar - connect collapser 
+sort navbar - full width of screen
+sort navbar - disappears on scroll down
+import privacy statement
+connect privacy statement collapse logic
+ensure that window scrolls to top of collapsible section
+connect favicon and change title
+optimise seo 
+host on netlify?
 
 import code from static project for unique bonus material collapsibles
 
-check the docs to configure for only one open at once
 
-think of a way to sync the order across desktops tablets and mobiles
-
-finalise styling configuration
 
 import the different unique components as per below
 
