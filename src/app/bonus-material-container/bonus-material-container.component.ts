@@ -4,16 +4,13 @@ import { BonusService } from '../bonus.service';
 import { BonusStructure } from '../bonusStructure';
 import { NgFor } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AccordionTestComponent } from '../accordion-test/accordion-test.component';
-import { AccordionTestStructure } from '../accordionTestStructure';
-import { AccordionService } from '../accordion.service';
 import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
-import { AccordionToggleComponent } from '../accordion-toggle/accordion-toggle.component';
+
 
 @Component({
   selector: 'app-bonus-material-container',
   standalone: true,
-  imports: [BonusMaterialComponent, NgFor, NgbModule, AccordionTestComponent, NgbAccordionModule, AccordionToggleComponent],
+  imports: [BonusMaterialComponent, NgFor, NgbModule, NgbAccordionModule],
   template: `
     <!--Section title-->
     <div class="text-start mt-5 mb-5 mx-auto">
@@ -21,7 +18,7 @@ import { AccordionToggleComponent } from '../accordion-toggle/accordion-toggle.c
         <h2>Bonus material</h2>
       </div>
     </div> <!--section title ends-->
-    <!--container of trio of bonus material components 1-->
+    <!--container of trio of bonus material components 1--><!--
     <div class="row trio-smaller-project-intros accordion" id="accordionParent">
       <app-bonus-material
         class="col-lg-3 col-md-5 collapser accordion-item"
@@ -29,7 +26,7 @@ import { AccordionToggleComponent } from '../accordion-toggle/accordion-toggle.c
         *ngFor="let bonusMaterial of bonusList"
         [bonusMaterial]="bonusMaterial"    
       ></app-bonus-material>
-    </div>
+    </div>-->
     <!--container of trio of bonus material components 1 ends-->
 
     <!--copy of container of trio of bonus material components 1-->
@@ -41,7 +38,7 @@ import { AccordionToggleComponent } from '../accordion-toggle/accordion-toggle.c
         [bonusMaterial]="bonusMaterial"
         (toggleSend)="accordion.toggle($event)"
       ></app-bonus-material>
-
+    
       <div 
         *ngFor="let bonusMaterial of bonusList"
         [ngbAccordionItem]="bonusMaterial.id.toString()"
@@ -82,39 +79,7 @@ import { AccordionToggleComponent } from '../accordion-toggle/accordion-toggle.c
 				    </ng-template>
 			    </div>
 		    </div>
-      </div>
-    <!--copy of container of trio of bonus material components 1 ends-->
-
-    <app-accordion-toggle></app-accordion-toggle>
-    
-
-    <!--Another accordion example--><!--
-    <div ngbAccordion class="d-flex flex-row">
-      <div ngbAccordionItem
-        *ngFor="let accordionItem of accordionList"
-        [ngbAccordionItem]="accordionItem.id"    
-      >
-        <h2 ngbAccordionHeader>
-          <button ngbAccordionButton>{{accordionItem.id}}</button>
-        </h2>
-        <div>
-          <app-accordion-test            
-            [accordionItem]="accordionItem" 
-             ngbAccordionCollapse
-          >
-          </app-accordion-test>
-        </div>
-      </div>-->
-<!--Another accordion example ENDS-->
-
-
-
-   
-   
-   
-   
-   
- 
+      </div> 
   `,
   styleUrl: './bonus-material-container.component.css',
   providers: [NgbAccordionConfig],
@@ -125,27 +90,14 @@ export class BonusMaterialContainerComponent {
     console.log('print text function works!');
   }
 
-  bonusService: BonusService = inject(BonusService);
-  accordionService: AccordionService = inject(AccordionService);
+  bonusService: BonusService = inject(BonusService);  
   
-  constructor(accordion: NgbAccordionModule) {    
-    this.bonusList = this.bonusService.getAllBonusMaterials();
-    this.accordionList = this.accordionService.getAllAccordionId();
-    //console.log(config)
-    console.log(accordion)
+  constructor() {    
+    this.bonusList = this.bonusService.getAllBonusMaterials();    
     
-  }  
-  
-  
-  
+  }
 
   bonusList: BonusStructure[] = [];
-  accordionList: AccordionTestStructure[] = []
-
-  items: AccordionTestStructure[] = [];
-  items2 = ['First', 'Second', 'Third'];
-
-
 
 }
 
