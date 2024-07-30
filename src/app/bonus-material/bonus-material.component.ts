@@ -8,45 +8,65 @@ import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstr
   standalone: true,
   imports: [NgbModule, NgbAccordionModule],
   template: `
-  <!--Collapser parent-->
-    <!--<div class="row trio-smaller-project-intros accordian" id="accordionParent">-->
-      <!--<div class="col-lg-3 col-md-5 collapser accordion-item" id="collapser1">-->
-      <!--<div>-->
-        <div class="card shadow-sm minor-project-description-container m-lg-2 rounded-4">
+  <!--Collapser Displayer-->
+    
+        <div class="card shadow-sm minor-project-description-container m-lg-2 rounded-4"><!--D1-->
           
-          <div>
+          <div><!--D2-->
             <img class="img-fluid rounded-top-4" [src]="bonusMaterial.image" alt={{bonusMaterial.imageAlt}} aria-label="a trio of alternate stylings for the Rave Frames website" title="Raven Frames alternate landing pages">
-          </div>
+          </div><!--D2 ends-->
           
-          <div class="card-body d-flex flex-column justify-content-between">
-            <div class="card-body-text-container">
+          <div class="card-body d-flex flex-column justify-content-between"><!--D3-->
+            <div class="card-body-text-container"><!--D4-->
               <h3 class="card-heading">{{bonusMaterial.heading}}</h3>
               <p class="card-text">{{bonusMaterial.description}}</p>
-            </div>
-            <div class="d-flex justify-content-between align-items-center mt-1">
-              <div class="btn-group w-100">
-                <!--drop down button-->
-                <!--<div ngbAccordion #accordion="ngbAccordion"></div>-->
+            </div><!--D4 ends-->
+            <div class="d-flex justify-content-between align-items-center mt-1"><!--D5-->
+              <div class="btn-group w-100"><!--D6-->
+                <!--drop down button-->                
                 <p class="w-100">
-                  
-                  <!--<button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseExample'+bonusMaterial.id" aria-expanded="false" aria-controls="collapseExample1">-->
-                  
                   <button class="btn btn-primary w-100" type="button" (click)="toggleClick(bonusMaterial.id.toString())">
                     View demo
-                  </button>
-                  
-                  
-                </p>
-                
-                
-              </div>
-              
-            </div>
-          </div>
-        <!--</div>-->
-      <!--</div>-->
+                  </button>                  
+                </p>                
+              </div><!--D6 ends-->              
+            </div><!--D5 ends-->
+          </div><!--D3 ends-->
+        </div><!--D1 ends-->
+      `,
+  styleUrl: './bonus-material.component.css'
+})
+export class BonusMaterialComponent {
+  @Input() bonusMaterial!: BonusStructure;
 
-      <div class="accordion-collapse collapse collapsible col-12" id="collapseExample{{bonusMaterial.id}}"  data-bs-parent="#accordionParent">
+  toggleSend = output<string>()    // OutputEmitterRef<string>
+
+  toggleClick(id: string){
+    //idMarker helps to create a more readable #id tag for css
+    let idMarker = 'collapsibleContent';
+    //the numerical id for each section of bonus material is passed in string form to act as event emitter
+    //this is then combined with the idMarker to synch with the readable id tags
+    console.log(idMarker+id)
+    this.toggleSend.emit(idMarker+id);    
+  }  
+
+  customCollapseAll = output()
+
+  customCollapseClick(){
+    this.customCollapseAll.emit();
+  }
+
+  //(click)="accordion.collapseAll()"
+  constructor(){
+    
+  }
+
+}
+
+/*
+ data-bs-target="#collapseExample{bonusMaterial.id}"
+
+<div class="accordion-collapse collapse collapsible col-12" id="collapseExample{{bonusMaterial.id}}"  data-bs-parent="#accordionParent">
   <div class="card ">
     <div class="card-body">
     <div class="card-body-inner lighterbackground rounded-3">
@@ -73,31 +93,6 @@ import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstr
     </div>
     </div>
   </div>
-</div>`,
-  styleUrl: './bonus-material.component.css'
-})
-export class BonusMaterialComponent {
-  @Input() bonusMaterial!: BonusStructure;
+</div>
 
-  toggleSend = output<string>()    // OutputEmitterRef<string>
-
-  toggleClick(id: string){
-    this.toggleSend.emit(id);    
-  }  
-
-  customCollapseAll = output()
-
-  customCollapseClick(){
-    this.customCollapseAll.emit();
-  }
-
-  //(click)="accordion.collapseAll()"
-  constructor(){
-    
-  }
-
-}
-
-/*
- data-bs-target="#collapseExample{bonusMaterial.id}"
 */

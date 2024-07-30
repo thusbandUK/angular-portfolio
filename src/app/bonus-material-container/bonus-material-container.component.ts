@@ -22,66 +22,61 @@ import { AlternativeStylingComponent } from '../alternative-styling/alternative-
       </div>
     </div> <!--section title ends-->
     
-
+<div ngbAccordion #accordion="ngbAccordion">
     <!--container of trio of bonus material introductory cards-->
-    <div class="row trio-smaller-project-intros accordion">
+    <div class="row trio-smaller-project-intros acccordion">    
       <app-bonus-material
          class="col-lg-3 col-md-5 collapser accordion-item accordion"
-         id="collapser{{bonusMaterial.id}}"
+         id="collapseDisplayer{{bonusMaterial.id}}"
         *ngFor="let bonusMaterial of bonusList"
         [bonusMaterial]="bonusMaterial"
         (toggleSend)="accordion.toggle($event)"
       ></app-bonus-material>
-    </div>
+    </div><!--this might need to be moved for the ordering css to work-->
+    
+    
+    
+     
+    
 
     <!--container of trio of bonus material collapsible sections-->
-    <div ngbAccordion #accordion="ngbAccordion">
+    
       <div 
         *ngFor="let bonusMaterial of bonusList"
-        [ngbAccordionItem]="bonusMaterial.id.toString()"
-      >
-        <div ngbAccordionCollapse>
-			    <div ngbAccordionBody>
+        [ngbAccordionItem]="'collapsibleContent'+bonusMaterial.id.toString()"
+      ><!--C1-->
+        <div ngbAccordionCollapse><!--C2-->
+			    <div ngbAccordionBody><!--C3-->
 				    <ng-template>
               
 					    <!--<div class="accordion-collapse collapse collapsible col-12" id="collapseExample3"  data-bs-parent="#accordionParent">-->
-              <div class="accordion-collapse collapsible col-12" >  
-              <div class="card ">
-                  <div class="card-body">
-                    <div class="card-body-inner lighterbackground rounded-3">
-                      <div class="collapsible-heading-button d-flex justify-content-between">
+              <div class="accordion-collapse collapsible col-12" ><!--C4-->
+              <div class="card "><!--C5-->
+                  <div class="card-body"><!--C6-->
+                    <div class="card-body-inner lighterbackground rounded-3"><!--C7-->
+                      <div class="collapsible-heading-button d-flex justify-content-between"><!--C8-->
                         <p class="collapsible-heading">{{bonusMaterial.heading}}</p>
                         <!--<button type="button" class="btn-close btn-close-white" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-label="Close"></button>-->
                         <button type="button" class="btn-close btn-close-white" (click)="accordion.collapseAll()" aria-label="Close"></button>
-                      </div>
-                      <div class="collapsible-white-inner" id="collapsible-horoscope-container">
+                      </div><!--C8 ends-->
+                      <div class="collapsible-white-inner" id="collapsible-horoscope-container"><!--C9-->
         
                         <ng-container 
-                        *ngComponentOutlet="getBonusContent(bonusMaterial.componentReference)" 
-                        
-                        />
-                        
-                        <!--horoscope generator code starts--><!--
-
-                        <h3>INSERT HEADING</h3>
-  
-                        <div id="horoscope-container">
-                          <div id="horoscope-text-holder">
-                            <p id="text"></p>
-                          </div>
-                          <img id="planets-image" alt="cartoon planets" src="images/cartoon planets.jpg" onClick="printText();">
-                        </div>
-
-                        <!--horoscope generator code finishes-->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                        *ngComponentOutlet="getBonusContent(bonusMaterial.componentReference)"                        
+                        />                       
+                       
+                      </div><!--C9 ends-->
+                    </div><!--C7 ends-->
+                  </div><!--C6 ends-->
+                </div><!--C5 ends-->
+              </div><!--C4 ends-->
 				    </ng-template>
-			    </div>
-		    </div>
-      </div> 
+			    </div><!--C3 ends-->
+		    </div><!--C2 ends-->
+      </div><!--C1 ends-->
+    
+  </div>
+    
   `,
   styleUrl: './bonus-material-container.component.css',
   providers: [NgbAccordionConfig],

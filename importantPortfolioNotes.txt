@@ -1,11 +1,22 @@
 need to 
 
+Ordering the elements is difficult because the trio of bonusMaterial intro cards is in a different container to the trio of
+unique content, but putting them in the same container stops the accordion animation working.
+
+try making 3 separate accordion units
+
 style:
-bs-accordion-background via class "accordion", on element: app-bonus-material
-and bs-accordion-border-color same issue
+previous names:
 
+#collapser3
 
-delete the experimental components, accordion, toggle etc and delete any references to them
+#collapseExample1
+
+new name:
+
+#collapseDisplayer
+#collapsibleContent
+
 
 try getting the bonusMaterial items outside of the accordion highest parent div
 

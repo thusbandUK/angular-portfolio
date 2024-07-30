@@ -255,7 +255,7 @@ header .navbar {
     background-color: var(--lighterBackground);    
 }
 
-#collapseExample3 .card-body-inner {
+#collapsibleContent3 .card-body-inner {
     border-bottom: solid 0.4rem var(--lighterBackground);
 }
 
@@ -586,27 +586,27 @@ footer .navbar .container-fluid {
 @media screen and (max-width: 768px) {
     /*Making the light boxes stack under the corresponding project text box for when they all stack on top of each other*/
 
-#collapser1 {
+#collapseDisplayer1 {
     order: 1;
 }
 
-#collapser2 {
+#collapseDisplayer2 {
     order: 3;
 }
 
-#collapser3 {
+#collapseDisplayer3 {
     order: 5;
 }
 
-#collapseExample1 {
+#collapsibleContent1 {
     order: 2;
 }
 
-#collapseExample2 {
+#collapsibleContent2 {
     order: 4;
 }
 
-#collapseExample3 {
+#collapsibleContent3 {
     order: 6;
 }
 
@@ -653,27 +653,27 @@ footer .navbar .container-fluid {
 
     /*Making the light boxes stack under the corresponding project text box for when they all stack on top of each other*/
 
-#collapser1 {
+#collapseDisplayer1 {
     order: 1;
 }
 
-#collapser2 {
+#collapseDisplayer2 {
     order: 2;
 }
 
-#collapser3 {
+#collapseDisplayer3 {
     order: 5;
 }
 
-#collapseExample1 {
+#collapsibleContent1 {
     order: 3;
 }
 
-#collapseExample2 {
+#collapsibleContent2 {
     order: 4;
 }
 
-#collapseExample3 {
+#collapsibleContent3 {
     order: 6;
 }
 
