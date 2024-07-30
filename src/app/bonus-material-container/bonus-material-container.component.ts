@@ -30,15 +30,16 @@ import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstr
     <!--container of trio of bonus material components 1 ends-->
 
     <!--copy of container of trio of bonus material components 1-->
-    <div ngbAccordion class="row trio-smaller-project-intros accordion" #accordion="ngbAccordion">
+    <div class="row trio-smaller-project-intros accordion">
       <app-bonus-material
-         class="col-lg-3 col-md-5 collapser accordion-item"
+         class="col-lg-3 col-md-5 collapser accordion-item accordion"
          id="collapser{{bonusMaterial.id}}"
         *ngFor="let bonusMaterial of bonusList"
         [bonusMaterial]="bonusMaterial"
         (toggleSend)="accordion.toggle($event)"
       ></app-bonus-material>
-    
+    </div>
+    <div ngbAccordion #accordion="ngbAccordion">
       <div 
         *ngFor="let bonusMaterial of bonusList"
         [ngbAccordionItem]="bonusMaterial.id.toString()"

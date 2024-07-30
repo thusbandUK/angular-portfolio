@@ -1,5 +1,10 @@
 need to 
 
+style:
+bs-accordion-background via class "accordion", on element: app-bonus-material
+and bs-accordion-border-color same issue
+
+
 delete the experimental components, accordion, toggle etc and delete any references to them
 
 try getting the bonusMaterial items outside of the accordion highest parent div

@@ -1,0 +1,4 @@
+.accordion {
+    --bs-accordion-bg: var(--darkerBackground) !important;
+    --bs-accordion-border-color: var(--darkerBackground) !important;
+}
