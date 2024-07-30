@@ -18,16 +18,7 @@ import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstr
         <h2>Bonus material</h2>
       </div>
     </div> <!--section title ends-->
-    <!--container of trio of bonus material components 1--><!--
-    <div class="row trio-smaller-project-intros accordion" id="accordionParent">
-      <app-bonus-material
-        class="col-lg-3 col-md-5 collapser accordion-item"
-         id="collapser{{bonusMaterial.id}}"
-        *ngFor="let bonusMaterial of bonusList"
-        [bonusMaterial]="bonusMaterial"    
-      ></app-bonus-material>
-    </div>-->
-    <!--container of trio of bonus material components 1 ends-->
+    
 
     <!--copy of container of trio of bonus material components 1-->
     <div class="row trio-smaller-project-intros accordion">
@@ -104,7 +95,17 @@ export class BonusMaterialContainerComponent {
 
 
 /*
-
+<!--container of trio of bonus material components 1--><!--
+    <div class="row trio-smaller-project-intros accordion" id="accordionParent">
+      <app-bonus-material
+        class="col-lg-3 col-md-5 collapser accordion-item"
+         id="collapser{{bonusMaterial.id}}"
+        *ngFor="let bonusMaterial of bonusList"
+        [bonusMaterial]="bonusMaterial"    
+      ></app-bonus-material>
+    </div>-->
+    <!--container of trio of bonus material components 1 ends-->
+    
 <div ngbAccordion>
      
    <div ngbAccordionCollapse>
