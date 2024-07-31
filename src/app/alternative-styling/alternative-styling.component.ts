@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-  <div class="collapsible-white-inner" id="scenario-wheel">
+  <div class="collapsible-white-inner">
   <div id="trio-of-raven-landing-pages" class="row w-100 d-flex-inline justify-content-around" style="height: 60vh;">
       <div class="col-md-3 m-2 d-flex align-items-center">
         <div id="left-photo" class="m-auto" style="background-color: red;">

@@ -1,5 +1,23 @@
 need to 
 
+**Accordion Scroller notes start**
+
+for the use of ng_bootstrap pre-configured outputs:
+
+see docs: https://ng-bootstrap.github.io/#/guides/animations (example of reference to output - note that it's written
+in a really back to front way, where the code as shown doesn't work, but is a shorthand for working code)
+
+accordion docs: https://ng-bootstrap.github.io/#/components/accordion/api (examples and details about output payload)
+
+see accordion.test.component - this has a simple function which logs the id for the section shown, note that for the 
+function shown, the (shown) reference in the html has to come in the opening accordion tag
+
+all of this links to script from the static site, namely "accordionScroller", which uses an event listener reference 
+"shown.bs.collapse" for the window automatically to scroll to the top of the revealed section. So, when the time is right,
+pick up from here.
+
+**Accordion Scroller notes end**
+
 inre: styling not working - esp wrong height collapsible inner - see original html inline styling: eg style="height: 60vh;"
 there'll be a different way to do that in angular, fixing which will probably address the problem
 

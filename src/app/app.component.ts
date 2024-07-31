@@ -10,7 +10,7 @@ import { ContactComponent } from './contact/contact.component';
 import { BonusMaterialContainerComponent } from './bonus-material-container/bonus-material-container.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //import * as sayHello from '../assets/scripts/testScript';
-import { sayHello } from '../assets/scripts/testScript';
+import { AccordionTestComponent } from './accordion-test/accordion-test.component';
 
 
 //declare function sayHello(): any;
@@ -18,11 +18,12 @@ import { sayHello } from '../assets/scripts/testScript';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgbModule, RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent, ContactComponent, BonusMaterialContainerComponent],
+  imports: [NgbModule, RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent, ContactComponent, BonusMaterialContainerComponent, AccordionTestComponent],
   template: `
     <header>
       <app-navbar></app-navbar>
     </header>
+    <app-accordion-test></app-accordion-test>
     <main>
       <section id="main-title">
         <app-main-title></app-main-title>
