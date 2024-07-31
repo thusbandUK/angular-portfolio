@@ -1,6 +1,9 @@
 need to 
 
+inre: styling not working - esp wrong height collapsible inner - see original html inline styling: eg style="height: 60vh;"
+there'll be a different way to do that in angular, fixing which will probably address the problem
 
+need to modularise the carousel code
 
 ADD TO DOCS
 

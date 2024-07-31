@@ -1,3 +1,5 @@
+
+
 /*
 
 This is just a trial bit of code to get a sense of what the project will involve. It generates horoscopes with four sentences.
@@ -80,7 +82,7 @@ function luckyTip() {
 
 //console.log(luckyTip());
 
-function displayHoroscope () {
+export function displayHoroscope () {
     document.getElementById('planets-image').style.opacity = 0;
     /*document.getElementById('planets-image').style.z-index = -1;*/
     return `${retrogradeDecision ()} ${stirredUp()} ${habitStop()} ${luckyTip()}`;
