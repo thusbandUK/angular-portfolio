@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
+import { randomRotate } from '../../assets/scripts/scenarioScript';
 
 @Component({
   selector: 'app-scenario-wheel',
   standalone: true,
-  imports: [],
+  imports: [],  
   template: `
-  
+  <!--<div class="collapsible-white-inner" id="collapsible-{{bonusMaterial.componentReference}}-container">--><!--C9-->
+  <div class="collapsible-white-inner" id="scenario-wheel"><!--C9-->
   <div class="row container-fluid" id="scenario-wheel-holder">
     <div class="col-md-3">
-      <p><button onclick="randomRotate()" aria-label="Click this button to get a randomly selected scenario then press tab for a summary">Click me to randomly select a situation</button></p> 
+      <p><button (click)="onClick()" aria-label="Click this button to get a randomly selected scenario then press tab for a summary">Click me to randomly select a situation</button></p> 
     </div>  
   
     <div class="col-md-6">
@@ -77,10 +79,16 @@ import { Component } from '@angular/core';
       
     </div>
   </div>
-  
+  </div><!--XX ends-->
   `,
   styleUrl: './scenario-wheel.component.css'
 })
-export class ScenarioWheelComponent {
+export class ScenarioWheelComponent {  
+
+  //uniqueIdReference = input<string>({alias: 'idReference'});
+
+  onClick():any {
+    randomRotate();
+  }
 
 }

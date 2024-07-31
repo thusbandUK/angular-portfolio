@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { BonusMaterialComponent } from '../bonus-material/bonus-material.component';
 import { BonusService } from '../bonus.service';
 import { BonusStructure } from '../bonusStructure';
@@ -64,13 +64,19 @@ import { AlternativeStylingComponent } from '../alternative-styling/alternative-
                         <!--<button type="button" class="btn-close btn-close-white" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-label="Close"></button>-->
                         <button type="button" class="btn-close btn-close-white" (click)="accordion.collapseAll()" aria-label="Close"></button>
                       </div><!--C8 ends-->
-                      <div class="collapsible-white-inner" id="collapsible-{{bonusMaterial.componentReference}}-container"><!--C9-->
+                      
+                      
         
                         <ng-container 
                         *ngComponentOutlet="getBonusContent(bonusMaterial.componentReference)"                        
+                        class="collapsible-white-inner"
+                        
+                        
+                        
+                        
                         />                       
                        
-                      </div><!--XX ends-->
+                      
                     </div><!--C7 ends-->
                   </div><!--C6 ends-->
                 </div><!--C5 ends-->
@@ -88,6 +94,8 @@ import { AlternativeStylingComponent } from '../alternative-styling/alternative-
 })
 export class BonusMaterialContainerComponent {
 
+  
+  
   getBonusContent(id: string){    
     
     switch(id){

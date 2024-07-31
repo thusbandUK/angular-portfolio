@@ -46,7 +46,7 @@ export class BonusMaterialComponent {
     let idMarker = 'collapsibleContent';
     //the numerical id for each section of bonus material is passed in string form to act as event emitter
     //this is then combined with the idMarker to synch with the readable id tags
-    console.log(idMarker+id)
+    //console.log(idMarker+id)
     this.toggleSend.emit(idMarker+id);    
   }  
 

@@ -33,7 +33,7 @@ function resetOpacity() {
     }
 }
 
-  function randomRotate() {
+  export function randomRotate() {
     console.log('random rotate function called');
     document.getElementById('final-selection').innerHTML = 'Please wait for your random selection...';
     resetOpacity();
