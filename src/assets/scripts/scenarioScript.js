@@ -1,10 +1,10 @@
-function randomDegreeGenerator() {
+export function randomDegreeGenerator() {
   let multiple = Math.floor(Math.random() * 10);
   let factor = 90;
   return 90 + multiple * factor;
 }
 
-function selectedTextFinder(degrees, direction){
+export function selectedTextFinder(degrees, direction){
   switch((degrees/90)%4) {
     case 0:
       return 1;
@@ -26,11 +26,39 @@ function selectedTextFinder(degrees, direction){
   }
 }
 
-function resetOpacity() {
+export function resetOpacity() {
   let wheelText = document.getElementsByClassName('wheel-text');
-    for (i = 0; i < wheelText.length; i++) {
+    for (let i = 0; i < wheelText.length; i++) {
       wheelText[i].style.opacity = 1;
     }
+}
+
+export function randomRotate4(){
+  //alert('hello');
+  let string = 'hello'
+  console.log(string);
+  let array = [ 1,2,3]
+  let newArray = [];
+  for (let i = 0; i++; i < array.length){
+    console.log(array[i]);
+    return newArray.push(array[i]*2);
+  }
+  alert(newArray);
+  //array.forEach(x => console.log(x));
+
+}
+
+function sayHelloExperiment(){
+  const arrayExperiment = [1,2,3];
+  let newArray = []
+  for (let i = 0; i< arrayExperiment.length; i ++){
+    newArray.push(arrayExperiment[i]*2);
+  }
+  alert(newArray);
+}
+
+export function randomRotate3(){
+  return sayHelloExperiment();
 }
 
   export function randomRotate() {
@@ -93,7 +121,7 @@ function resetOpacity() {
 
     setTimeout(function(){
       let wheelText = document.getElementsByClassName('wheel-text');
-    for (i = 0; i < wheelText.length; i++) {
+    for (let i = 0; i < wheelText.length; i++) {
       wheelText[i].style.opacity = 0.5;
     }
     document.getElementById(`big-text${selectedTextFinder(finalRotationDegreeBig, 'clockwise')}`).style.opacity = 1;

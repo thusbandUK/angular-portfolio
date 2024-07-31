@@ -18,7 +18,7 @@ import { randomRotate } from '../../assets/scripts/scenarioScript';
         
         <div id="arrow-container">
           
-          <img src="images/arrow-icon.png" alt="arrow">
+          <img src="assets/scenarioWheel/arrow-icon.png" alt="arrow">
           
         </div>       
            
@@ -86,6 +86,8 @@ import { randomRotate } from '../../assets/scripts/scenarioScript';
 export class ScenarioWheelComponent {  
 
   //uniqueIdReference = input<string>({alias: 'idReference'});
+
+  
 
   onClick():any {
     randomRotate();
