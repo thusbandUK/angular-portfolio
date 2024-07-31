@@ -1,5 +1,16 @@
 need to 
 
+with the styling for the scenarioWheel (and the others). In the static site there are markers which say, 'everything
+within these markers is the unique code for the specific content' but actually, outside of the markers is a div with
+the standard class of "collapsible white inner" but unique id for each one. So it's easy enough to render a unique
+id for each collapsible, but the problem is that the stylings will not take affect if they're placed in that BonusMaterial
+item's component. That's rendered in bonusMaterial container (arguably a duff choice). Probably the easiest thing to do
+is to render the div's that were outside of the demarkated unique code block inside the ng_container in the bonusMaterial.container
+
+okay, putting the div inside has its own difficulties but also it's bad coding because it will be repetitious. What might be 
+better is if, hang on, can you just import the style sheets?
+
+
 inre importing js files to angular: https://www.geeksforgeeks.org/how-to-include-a-javascript-file-in-angular-and-call-a-function-from-that-script/
 
 sort navbar - connect collapser 

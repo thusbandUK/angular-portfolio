@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
+  
   <div class="row container-fluid" id="scenario-wheel-holder">
     <div class="col-md-3">
       <p><button onclick="randomRotate()" aria-label="Click this button to get a randomly selected scenario then press tab for a summary">Click me to randomly select a situation</button></p> 
@@ -76,6 +77,7 @@ import { Component } from '@angular/core';
       
     </div>
   </div>
+  
   `,
   styleUrl: './scenario-wheel.component.css'
 })

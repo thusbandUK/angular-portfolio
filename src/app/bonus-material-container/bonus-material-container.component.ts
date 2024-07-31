@@ -70,7 +70,7 @@ import { AlternativeStylingComponent } from '../alternative-styling/alternative-
                         *ngComponentOutlet="getBonusContent(bonusMaterial.componentReference)"                        
                         />                       
                        
-                      </div><!--C9 ends-->
+                      </div><!--XX ends-->
                     </div><!--C7 ends-->
                   </div><!--C6 ends-->
                 </div><!--C5 ends-->
@@ -83,7 +83,7 @@ import { AlternativeStylingComponent } from '../alternative-styling/alternative-
   </div>
     
   `,
-  styleUrl: './bonus-material-container.component.css',
+  styleUrls: ['./bonus-material-container.component.css', '../scenario-wheel/scenario-wheel.component.css'],
   providers: [NgbAccordionConfig],
 })
 export class BonusMaterialContainerComponent {
