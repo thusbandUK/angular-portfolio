@@ -1,0 +1,323 @@
+/*animation container code*/
+
+/*code for responsive design*/
+
+#collapsible-scenarioWheel-container .container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  #collapsible-scenarioWheel-container .col-md-3, #collapsible-scenarioWheel-container .col-md-6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #collapsible-scenarioWheel-container .col-md-6 {
+    padding-left: 0px;
+    padding-right: 0px;
+    
+  }
+  
+  #collapsible-scenarioWheel-container #container p {
+    margin: auto;
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 80%;
+  }
+  
+  #collapsible-scenarioWheel-container  #container {
+      width: 35vw;
+      height: 35vw;
+      position: relative;    
+      z-index: 1;
+    }
+  
+    #collapsible-scenarioWheel-container #arrow-container {
+      position: absolute;
+      height: 10%;
+      width: 7.5%;
+      left: 46.5%;
+      top: 47%;
+      z-index: 5;
+    }
+    
+    #collapsible-scenarioWheel-container #arrow-container img {
+      max-width: 100%;
+      height: auto;
+      transform: rotate(-90deg);
+      
+    }
+    
+    #scenario-wheel-holder {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  
+    .accessibility-summary {
+      color: black;
+  
+    }
+  
+    /*circles code*/
+    
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      
+    }
+    
+  /*sizings for big, medium and small circles*/
+  
+  #big {
+    background: #76C2C1;
+    width: 90%;
+    height: 90%;
+    z-index: 2;
+    top: 5%;
+    left: 5%
+  }
+  
+  #medium {
+    background: #F1D63E;
+    width: 70%;
+    height: 70%;
+    z-index: 3;
+    top: 15%;
+    left: 15%;
+  }
+  
+  #small {
+    background: #B33D69;
+    width: 50%;
+    height: 50%;
+    z-index: 4;
+    top: 25%;
+    left: 25%;
+  
+  }
+  
+  
+    /*text box code*/
+  
+  .wheel-text {  
+    position: absolute;
+  }
+  
+  #big .wheel-text {
+    width: 50%; 
+    height: 10%;
+  }
+  
+  #medium .wheel-text{
+    width: 30%;
+    height: 15%;
+  }
+  
+  #small .wheel-text {
+    width: 37.5%;
+    height: 15%;  
+  }
+  
+   #small .wheel-text {
+    color: white;
+  }
+  
+  #big .wheel-text, #medium .wheel-text {
+    color: black;
+  }
+  
+  /*big text box code*/
+  
+  #big-text1 {
+    
+    top: 3.33%;
+    left: 25%;  
+  }
+  
+  #big-text2 {
+    
+    top: 45%;
+    left: 67.5%;  
+    transform: rotate(90deg);  
+  }
+  
+  #big-text3 {  
+    top: 86.67%;
+    left: 25%;  
+    transform: rotate(180deg);  
+  }
+  
+  #big-text4 {
+    left: -17.5%;
+    top: 45%;  
+    transform: rotate(-90deg);  
+  }
+  
+  /*medium circle text boxes*/
+  
+  #medium-text1 {
+    top: 3%;
+    left: 32%;  
+  }
+  
+  #medium-text2 {
+    top: 42.5%;
+    left: 72%;
+    transform: rotate(90deg);  
+  }
+  
+  #medium-text3 {
+    top: 83%;
+    left: 32.5%;
+    transform: rotate(180deg);  
+  }
+  
+  #medium-text4 {
+    top: 42.5%;  
+    left: -6%;
+    transform: rotate(-90deg);  
+  }
+  
+  /*Small circle text boxes*/
+  
+  #small-text1 {
+    top: 10%;
+    left: 31.25%;  
+  }
+  
+  #small-text2 {
+    top: 42.5%;
+    left: 62.5%;
+    transform: rotate(90deg);  
+  }
+  
+  #small-text3 {
+    top: 75%;
+    left: 31.25%;
+    transform: rotate(180deg);  
+  }
+  
+  #small-text4 {
+    top: 42.5%;  
+    transform: rotate(-90deg);  
+  }
+  
+  /*optimisation for different sized screens*/
+  
+  @media (min-width: 1350px) {
+    #collapsible-scenarioWheel-container #container p {
+      font-size: 1.4rem;    
+    }
+  
+  }
+  
+  @media (min-width: 1260px) and (max-width: 1350px) {
+    #collapsible-scenarioWheel-container #container p {
+      font-size: 1.2rem;    
+    }
+  
+  }
+  
+  @media (min-width: 1110px) and (max-width: 1260px) {
+    #collapsible-scenarioWheel-container #container p {
+      font-size: 1.1rem;    
+    }
+  
+  }
+  
+  @media (min-width: 1000px) and (max-width: 1110px) {
+    #collapsible-scenarioWheel-container #container p {
+      font-size: 1rem;    
+    }
+  
+  }
+  
+  @media (min-width: 768px) and (max-width: 850px) {
+    /*optimisation of scenario selection wheel for mobile devices*/  
+  
+    #collapsible-scenarioWheel-container #container p {
+      font-size: 0.7rem;    
+    }
+  }
+  
+  @media (min-width: 850px) and (max-width: 1000px) {
+    /*optimisation of scenario selection wheel for mobile devices*/ 
+  
+    #collapsible-scenarioWheel-container #container p {
+      font-size: 0.8rem;
+      
+    }
+  }
+  
+  @media (min-width: 450px) and (max-width: 768px) {
+      #collapsible-scenarioWheel-container #container {
+      width: 75vw;
+      height: 75vw;   
+    }
+  }
+  
+  @media (min-width: 450px) and (max-width: 600px) {
+    /*optimisation of scenario selection wheel for mobile devices*/  
+  
+    #collapsible-scenarioWheel-container #container p {
+      font-size: 1rem;
+      
+    }
+  }
+  
+  
+  @media (min-width: 370px) and (max-width: 450px) {
+    /*optimisation of scenario selection wheel for mobile devices*/  
+  
+    #collapsible-scenarioWheel-container #container {
+      width: 60vw;
+      height: 60vw;   
+    }
+  
+    #collapsible-scenarioWheel-container #container p {
+      font-size: 0.6rem;
+      
+    }
+  }
+  
+  @media (min-width: 250px) and (max-width: 370px) {
+    /*optimisation of scenario selection wheel for mobile devices*/  
+  
+  
+    #collapsible-scenarioWheel-container #container p {
+      font-size: 0.5rem;
+      
+    }
+  
+    #collapsible-scenarioWheel-container #container {
+      width: 60vw;
+      height: 60vw;   
+    }
+  }
+  
+  @media screen and (min-width: 240px) and (max-width: 290px) {
+    /*optimisation of scenario selection wheel for mobile devices*/  
+    #collapsible-scenarioWheel-container #container {
+      width: 60vw;
+      height: 60vw;   
+    }
+  
+    #collapsible-scenarioWheel-container #container p {
+      font-size: 0.4rem;
+      
+    }
+  }
+  
+  @media screen and (max-width: 240px) {
+    /*optimisation of scenario selection wheel for mobile devices*/  
+    #collapsible-scenarioWheel-container #container {
+      width: 50vw;
+      height: 50vw;   
+    }
+  
+    #collapsible-scenarioWheel-container #container p {
+      font-size: 0.3rem;
+      
+    }
+  }

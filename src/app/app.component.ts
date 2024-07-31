@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 //import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -9,7 +9,11 @@ import { BigProjectContainerComponent } from './big-project-container/big-projec
 import { ContactComponent } from './contact/contact.component';
 import { BonusMaterialContainerComponent } from './bonus-material-container/bonus-material-container.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import * as sayHello from '../assets/scripts/testScript';
+import { sayHello } from '../assets/scripts/testScript';
 
+
+//declare function sayHello(): any;
 
 @Component({
   selector: 'app-root',
@@ -35,7 +39,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       <section id="get-in-touch">
         <app-contact></app-contact>
       </section>      
-    </main>
+    </main>    
     <footer>
       <app-footer></app-footer>
     </footer>
@@ -44,4 +48,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent {
   title = 'T Husband';
+/*
+  onClick(){
+    sayHello();
+  }
+
+  ngOnInit(): void {
+    sayHello();
+  }
+    */
+  
 }

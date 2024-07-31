@@ -1,5 +1,7 @@
 need to 
 
+inre importing js files to angular: https://www.geeksforgeeks.org/how-to-include-a-javascript-file-in-angular-and-call-a-function-from-that-script/
+
 sort navbar - connect collapser 
 sort navbar - full width of screen
 sort navbar - disappears on scroll down

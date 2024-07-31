@@ -64,7 +64,7 @@ import { AlternativeStylingComponent } from '../alternative-styling/alternative-
                         <!--<button type="button" class="btn-close btn-close-white" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-label="Close"></button>-->
                         <button type="button" class="btn-close btn-close-white" (click)="accordion.collapseAll()" aria-label="Close"></button>
                       </div><!--C8 ends-->
-                      <div class="collapsible-white-inner" id="collapsible-horoscope-container"><!--C9-->
+                      <div class="collapsible-white-inner" id="collapsible-{{bonusMaterial.componentReference}}-container"><!--C9-->
         
                         <ng-container 
                         *ngComponentOutlet="getBonusContent(bonusMaterial.componentReference)"                        
