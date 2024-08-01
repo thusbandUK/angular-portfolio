@@ -11,6 +11,7 @@ import { BonusMaterialContainerComponent } from './bonus-material-container/bonu
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //import * as sayHello from '../assets/scripts/testScript';
 import { AccordionTestComponent } from './accordion-test/accordion-test.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 
 //declare function sayHello(): any;
@@ -18,7 +19,7 @@ import { AccordionTestComponent } from './accordion-test/accordion-test.componen
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgbModule, RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent, ContactComponent, BonusMaterialContainerComponent, AccordionTestComponent],
+  imports: [NgbModule, RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent, ContactComponent, BonusMaterialContainerComponent, AccordionTestComponent, PrivacyComponent],
   template: `
     <header>
       <app-navbar></app-navbar>
@@ -40,7 +41,8 @@ import { AccordionTestComponent } from './accordion-test/accordion-test.componen
       <section id="get-in-touch">
         <app-contact></app-contact>
       </section>      
-    </main>    
+    </main>
+    <app-privacy></app-privacy>
     <footer>
       <app-footer></app-footer>
     </footer>
