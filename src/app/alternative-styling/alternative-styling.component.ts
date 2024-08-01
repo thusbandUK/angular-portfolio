@@ -4,8 +4,11 @@ import { Component } from '@angular/core';
   selector: 'app-alternative-styling',
   standalone: true,
   imports: [],
+  host: {
+    'style': 'display: flex;'
+  },
   template: `
-  <div class="collapsible-white-inner">
+  <div class="collapsible-white-inner w-100">
   <div id="trio-of-raven-landing-pages" class="row w-100 d-flex-inline justify-content-around" style="height: 60vh;">
       <div class="col-md-3 m-2 d-flex align-items-center">
         <div id="left-photo" class="m-auto" style="background-color: red;">

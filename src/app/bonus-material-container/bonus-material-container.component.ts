@@ -70,6 +70,7 @@ import { AlternativeStylingComponent } from '../alternative-styling/alternative-
                         <ng-container 
                         *ngComponentOutlet="getBonusContent(bonusMaterial.componentReference)"                        
                         class="collapsible-white-inner"
+                        style="display: flex;"
                         
                         
                         

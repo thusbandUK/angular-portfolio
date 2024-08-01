@@ -18,6 +18,15 @@ pick up from here.
 
 **Accordion Scroller notes end**
 
+FOR THE DOCS
+
+For any additional bonus material component, ie: when creating a new set of BM info, you cannot add stylings via the
+ng_container, the whole point of which being that it's a reference point in the dom, but has no place in the dom. So you need
+to style the app element by adding "host" content in the component factory (? the section of the component.ts that starts 
+with @component and is an object). It's fairly straight-forward, host has an object, in which you write styles by json
+format, ie: 'style': 'display: flex'. And they need to be flex in order for the stylings of the surrounding elements all 
+to synch as in the static site.
+
 inre: styling not working - esp wrong height collapsible inner - see original html inline styling: eg style="height: 60vh;"
 there'll be a different way to do that in angular, fixing which will probably address the problem
 

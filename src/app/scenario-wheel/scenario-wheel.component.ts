@@ -4,7 +4,10 @@ import { randomRotate } from '../../assets/scripts/scenarioScript';
 @Component({
   selector: 'app-scenario-wheel',
   standalone: true,
-  imports: [],  
+  imports: [],
+  host: {
+    'style': 'display: flex;'
+  },
   template: `
   <!--<div class="collapsible-white-inner" id="collapsible-{{bonusMaterial.componentReference}}-container">--><!--C9-->
   <div class="collapsible-white-inner" id="scenario-wheel"><!--C9-->

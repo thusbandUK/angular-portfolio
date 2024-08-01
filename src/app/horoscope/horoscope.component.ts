@@ -5,8 +5,11 @@ import { printText }from '../../assets/scripts/scrambling-text';
   selector: 'app-horoscope',
   standalone: true,
   imports: [],
+  host: {
+    'style': 'display: flex;'
+  },
   template: `
-  <div class="collapsible-white-inner" id="scenario-wheel">
+  <div class="collapsible-white-inner"  id="collapsible-horoscope-container">
     <h3>Click the planets to view your horoscope</h3>
     <div id="horoscope-container">
       <div id="horoscope-text-holder">
