@@ -1,6 +1,10 @@
 need to 
 
+To toggle the privacy component from the sibling footer component, you need to use a pipe: see: https://angular.dev/guide/pipes
+
 **Accordion Scroller notes start**
+
+.accordion-item border should = 0 for privacy container
 
 for the use of ng_bootstrap pre-configured outputs:
 

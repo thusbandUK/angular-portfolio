@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
+  imports: [NgbAccordionModule],
   template: `
     <nav class="navbar sticky-bottom navbar-expand-lg navbar-dark  mt-5 pb-5">
       <div class="container-fluid  d-flex justify-content-between">      
         <p>&#169;T Husband 2023  |</p>
+        <div ngbAccordion #accordion="ngbAccordion"></div>
         <div class="list-group">
-          <p><a class="nav-item list-group-item mx-2" id="privacy-collapser" data-bs-toggle="collapse" href="#privacy-collapsible" role="button" href="#">Privacy</a></p>
-        </div>
+          <!--<p><a class="nav-item list-group-item mx-2" id="privacy-collapser" data-bs-toggle="collapse" href="#privacy-collapsible" role="button" href="#">Privacy</a></p>-->
+        <button class="nav-item list-group-item mx-2" id="privacy-collapser" (click)="privacyToggle()" role="button">Privacy</button>
+        
+          </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,5 +40,16 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
+
+  privacyToggleSend = output<string>()    // OutputEmitterRef<string>
+
+  privacyToggle(){
+    //idMarker helps to create a more readable #id tag for css
+    let idMarker = 'collapsibleContent';
+    //the numerical id for each section of bonus material is passed in string form to act as event emitter
+    //this is then combined with the idMarker to synch with the readable id tags
+    //console.log(idMarker+id)
+    this.privacyToggleSend.emit("privacy");    
+  }  
 
 }
