@@ -24,7 +24,7 @@ import { PrivacyContainerComponent } from './privacy-container/privacy-container
     <header>
       <app-navbar></app-navbar>
     </header>
-    <app-accordion-test></app-accordion-test>
+    <!--<app-accordion-test></app-accordion-test>-->
     <main>
       <section id="main-title">
         <app-main-title></app-main-title>
