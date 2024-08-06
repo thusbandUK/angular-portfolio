@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -6,7 +6,7 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
   standalone: true,
   imports: [NgbCollapseModule],
   template: `
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark  background " aria-label="navigation bar">
+    <nav id="navbar"  [class.hide-nav]="hideNav" class="navbar navbar-expand-lg navbar-dark  background " aria-label="navigation bar">
       <div class="container-fluid d-flex justify-content-between">
         <a class="navbar-brand border border-2  bs-navbar-toggler-border-color p-1 py-3" href="#"> &lt;Th\&gt;</a>        
         <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,5 +63,29 @@ export class NavbarComponent {
 	// Start with the menu collapsed so that it does not
 	// appear initially when the page loads on a small screen!
 	isMenuCollapsed = true;
+
+  //these variables work with the below scroll event listener to make the navbar disappear on scroll down
+  //and vice versa
+  hideNav = false;
+  prevScrollPos = window.scrollY;
+
+@HostListener('window:scroll') // for window scroll events removed: , ['$event'] 
+onScroll() {  //removed: event: any 
+
+  var currentScrollPos = window.scrollY;
+
+  if (this.prevScrollPos > currentScrollPos) {
+    
+    this.hideNav = false;
+    
+  } else {
+    
+    this.hideNav = true;    
+    
+  }
+  this.prevScrollPos = currentScrollPos;
+
+
+}
 
 }

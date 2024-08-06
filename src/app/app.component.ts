@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 //import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -51,14 +51,10 @@ import { PrivacyContainerComponent } from './privacy-container/privacy-container
 })
 export class AppComponent {
   title = 'T Husband';
-/*
-  onClick(){
-    sayHello();
-  }
+  
+  //@ViewChild(NavbarComponent) navbar: NavbarComponent;
 
-  ngOnInit(): void {
-    sayHello();
-  }
-    */
+
+
   
 }

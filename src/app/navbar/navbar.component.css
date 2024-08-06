@@ -1,0 +1,8 @@
+.navbar.hide-nav {
+    /*display: none !important;*/ /* You can play on opacity for nice transitions*/
+    top: -75px !important;
+  }
+
+  .navbar {
+   top: 0 !important;
+  }
