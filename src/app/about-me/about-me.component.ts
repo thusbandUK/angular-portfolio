@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterContentInit, HostListener, output } from '@angular/core';
 
 @Component({
   selector: 'app-about-me',
   standalone: true,
   imports: [],
   template: `
-    <div class="text-start mt-5 mx-auto">
+    <div class="text-start mt-5 mx-auto" #aboutMe>
       <div class="main-title-inner">
         <h2>About</h2>
         <div class="row">
@@ -54,6 +54,23 @@ import { Component } from '@angular/core';
   `,
   styleUrl: './about-me.component.css'
 })
-export class AboutMeComponent {
+export class AboutMeComponent  {
+
+  @ViewChild('aboutMe') aboutMe!: ElementRef;
+
+  yPosition: string = 'hello'
+ 
+
+  
+/*
+
+  @HostListener('window:scroll') // for window scroll events removed: , ['$event'] 
+  onScroll() {  //removed: event: any 
+  
+    console.log(this.aboutMe.nativeElement.getBoundingClientRect().y)
+
+  
+  
+  }*/
 
 }

@@ -22,7 +22,10 @@ import { PrivacyContainerComponent } from './privacy-container/privacy-container
   imports: [NgbModule, RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent, ContactComponent, BonusMaterialContainerComponent, AccordionTestComponent, PrivacyContainerComponent],
   template: `
     <header>
-      <app-navbar></app-navbar>
+      <app-navbar
+      (sendSelectedItem)="logResult($event)"
+      (navHide)="setNavHide"
+      ></app-navbar>
     </header>
     <!--<app-accordion-test></app-accordion-test>-->
     <main>
@@ -49,12 +52,24 @@ import { PrivacyContainerComponent } from './privacy-container/privacy-container
   `,
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements  AfterViewInit  {
   title = 'T Husband';
   
-  //@ViewChild(NavbarComponent) navbar: NavbarComponent;
+  //@ViewChild(NavbarComponent) toggle: NavbarComponent | undefined;
+  @ViewChild('navbar') navbarDiv: ElementRef<HTMLDivElement> | undefined ;
+  @ViewChild(AboutMeComponent) aboutMePosition!: AboutMeComponent
 
 
+  setNavHide: boolean = false;
+  logResult(event: any){
+    console.log('logResult triggered')
+    console.log('app received output of', event);
+    console.log(this.aboutMePosition.aboutMe.nativeElement.getBoundingClientRect().y);
+    this.setNavHide = true;
+  }
 
+ ngAfterViewInit(){
+  console.log(this.navbarDiv);
+ }
   
 }

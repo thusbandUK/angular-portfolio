@@ -1,13 +1,14 @@
-import { Component, HostListener, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, HostListener, ViewChild, viewChild, ElementRef, AfterViewInit, output, Input } from '@angular/core';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { AboutMeComponent } from '../about-me/about-me.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [NgbCollapseModule],
   template: `
-    <nav id="navbar"  [class.hide-nav]="hideNav" class="navbar navbar-expand-lg navbar-dark  background " aria-label="navigation bar">
-      <div class="container-fluid d-flex justify-content-between">
+    <nav id="navbar" #navbar [class.hide-nav]="hideNav" class="navbar navbar-expand-lg navbar-dark  background " aria-label="navigation bar">
+      <div class="container-fluid d-flex justify-content-between" #myDiv>
         <a class="navbar-brand border border-2  bs-navbar-toggler-border-color p-1 py-3" href="#"> &lt;Th\&gt;</a>        
         <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -16,19 +17,19 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
         <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed" id="navbarTogglerDemo02">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item px-lg-4 mx-lg-1">
-              <a class="nav-link" aria-current="page" (click)="isMenuCollapsed = true" href="#about-me" target="_self">About</a>
+              <a class="nav-link" aria-current="page" (click)="collapseMenu()" href="#about-me" target="_self">About</a>
             </li>
             <li class="nav-item px-lg-4 mx-lg-1">
-              <a class="nav-link" href="#projects" (click)="isMenuCollapsed = true" target="_self">Projects</a>
+              <a class="nav-link" href="#projects" (click)="collapseMenu()" target="_self">Projects</a>
             </li>
             <li class="nav-item px-lg-4 mx-lg-1">
-              <a class="nav-link" href="#bonus-material" (click)="isMenuCollapsed = true" target="_self">Bonus Material</a>
+              <a class="nav-link" href="#bonus-material" (click)="collapseMenu()" target="_self">Bonus Material</a>
             </li>
             <li class="nav-item px-lg-4 mx-lg-1">
-              <a class="nav-link" href="#get-in-touch" (click)="isMenuCollapsed = true" target="_self">Contact</a>
+              <a class="nav-link" href="#get-in-touch" (click)="collapseMenu()" target="_self">Contact</a>
             </li>
             <li class="nav-item px-lg-4 mx-lg-3">
-              <a class="nav-link" href="./files/CV.pdf" (click)="isMenuCollapsed = true" target="_blank" download="THusband-CV">CV</a>
+              <a class="nav-link" href="./files/CV.pdf" (click)="collapseMenu()" target="_blank" download="THusband-CV">CV</a>
             </li>
             <!--LinkedIn-->          
             <li class="nav-item">
@@ -58,23 +59,62 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class NavbarComponent {
 
+  text: string = 'hello';
+
   // Step 1:
 	// Create a property to track whether the menu is open.
 	// Start with the menu collapsed so that it does not
 	// appear initially when the page loads on a small screen!
 	isMenuCollapsed = true;
 
+  divEl = viewChild<ElementRef>('navbar');
+  @ViewChild('navbar') navbar!: ElementRef;
+
+  //aboutMe = AboutMeComponent.aboutMe
+
+  sendSelectedItem = output<string>()    // OutputEmitterRef<string>
+
+  itemNavigate(id: string){
+    console.log('itemNavigate triggered');
+    console.log(id);
+    //emits output to app as to which element has been selected to navigate to
+    this.sendSelectedItem.emit(id);    
+  } 
+
+  hideNav = false;
+
+  
+
+  ngAfterViewInit(){
+    console.log(this.divEl);
+  }
+
   //these variables work with the below scroll event listener to make the navbar disappear on scroll down
   //and vice versa
-  hideNav = false;
+  @Input() 
+  
+  
+  get navHide(): boolean {
+    return this.hideNav;
+  }
+  set navHide(newValue: boolean) {
+    this.hideNav = newValue;
+  }
+  //private internalValue = 0;
+  
+  
   prevScrollPos = window.scrollY;
 
 @HostListener('window:scroll') // for window scroll events removed: , ['$event'] 
-onScroll() {  //removed: event: any 
+onScroll(scrollReason?: string) {  //removed: event: any 
 
   var currentScrollPos = window.scrollY;
-
-  if (this.prevScrollPos > currentScrollPos) {
+ 
+  if (scrollReason === 'navigation-scroll'){
+    setTimeout(() => {                           
+    this.hideNav = true;
+    }, 1000);
+  } else if (this.prevScrollPos > currentScrollPos) {
     
     this.hideNav = false;
     
@@ -85,7 +125,16 @@ onScroll() {  //removed: event: any
   }
   this.prevScrollPos = currentScrollPos;
 
+}
 
+collapseMenu(){
+  //console.log(navbarValue);
+  this.isMenuCollapsed = true;
+  //this.hideNav = true;
+  this.onScroll('navigation-scroll');
+  //console.log(window.scroll)
+  
+  
 }
 
 }

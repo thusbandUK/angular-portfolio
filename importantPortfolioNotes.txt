@@ -51,7 +51,15 @@ inre importing js files to angular: https://www.geeksforgeeks.org/how-to-include
 
 
 sort navbar - full width of screen
-sort navbar - disappears on scroll down
+sort navbar - disappears on scroll down, all that needs fixing here is for it to work the same way when you link to a higher
+up part of the page. See the pioneering work in about-me, linked w: https://developer.chrome.com/blog/angular-dom-safety-ssr 
+you basically need to create children in each different section, work out how to read their signals
+
+an eventemitter output has to be signalled to the app parent of all components from navbar
+app can view all its children
+then the app houses the logic that 
+
+
 import privacy statement
 connect privacy statement collapse logic
 ensure that window scrolls to top of collapsible section
