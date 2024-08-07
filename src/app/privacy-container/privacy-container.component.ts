@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { Component, Input, OnInit, DoCheck, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
+import { NgbAccordionModule, NgbAccordionDirective } from '@ng-bootstrap/ng-bootstrap';
 import { PrivacyComponent } from '../privacy/privacy.component';
 
 @Component({
@@ -26,10 +26,17 @@ import { PrivacyComponent } from '../privacy/privacy.component';
   `,
   styleUrl: './privacy-container.component.css'
 })
-export class PrivacyContainerComponent {
-/*
-  privacyToggleSend.subscribe(id => {
-    console.log(id);
-  })*/
+export class PrivacyContainerComponent implements OnChanges {
+  //This enables the value of containerId in the app.component to be accessible in this child component
+  @Input() containerId!:string;
+
+  //this enables the NgbAccordion methods to be activated from the class
+  @ViewChild('accordion') accordionComponent!: NgbAccordionDirective;
+
+  //this listens for changes to the input, which are beamed via the app.component (as variable containerId)
+  //from the footer component
+  ngOnChanges(changes: SimpleChanges) {    
+    this.accordionComponent.toggle(this.containerId);
+  }
 
 }

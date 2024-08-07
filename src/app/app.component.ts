@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, ViewChild, AfterViewInit, OnChanges } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 //import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -23,7 +23,7 @@ import { PrivacyContainerComponent } from './privacy-container/privacy-container
   template: `
     <header>
       <app-navbar
-      (sendSelectedItem)="logResult($event)"
+      
       (navHide)="setNavHide"
       ></app-navbar>
     </header>
@@ -45,9 +45,13 @@ import { PrivacyContainerComponent } from './privacy-container/privacy-container
         <app-contact></app-contact>
       </section>      
     </main>
-    <app-privacy-container></app-privacy-container>
+    <app-privacy-container
+      [containerId]="containerId"
+    ></app-privacy-container>
     <footer>
-      <app-footer></app-footer>
+      <app-footer
+        (privacyToggleSend)="send($event)"
+      ></app-footer>
     </footer>
   `,
   styleUrl: './app.component.css'
@@ -64,10 +68,18 @@ export class AppComponent implements  AfterViewInit  {
   logResult(event: any){
     console.log('logResult triggered')
     console.log('app received output of', event);
-    console.log(this.aboutMePosition.aboutMe.nativeElement.getBoundingClientRect().y);
-    this.setNavHide = true;
+    //console.log(this.aboutMePosition.aboutMe.nativeElement.getBoundingClientRect().y);
+    //this.setNavHide = true;
   }
 
+  containerId = "I am a placeholder containerId"; 
+  send(containerId: string){ 
+    console.log('send triggered')
+    this.containerId = containerId; 
+    console.log(containerId)
+  } 
+
+  
  ngAfterViewInit(){
   console.log(this.navbarDiv);
  }
