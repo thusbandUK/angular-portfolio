@@ -45,11 +45,8 @@ export class FooterComponent {
 
   privacy: boolean = false;
   privacyToggle(){
-    //idMarker helps to create a more readable #id tag for css
-    let idMarker = 'collapsibleContent';
-    //the numerical id for each section of bonus material is passed in string form to act as event emitter
-    //this is then combined with the idMarker to synch with the readable id tags
-    //console.log(idMarker+id)
+    console.log('privacyToggle click handler triggered in footer')
+    
     this.privacyToggleSend.emit(this.privacy);
     this.privacy = !this.privacy;
   }  

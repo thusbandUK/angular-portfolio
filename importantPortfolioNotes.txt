@@ -1,6 +1,16 @@
-need to 
+need to:
 
-To toggle the privacy component from the sibling footer component, you need to use a pipe: see: https://angular.dev/guide/pipes
+consider different bonus material - what could work quite well is if you connect it to spotify so that users can search
+for and play a song
+
+connect privacy statement collapse logic - there's a problem with the fact that the first time you click privacy,
+nothing happens. Only on the second click does it work.
+ensure that window scrolls to top of collapsible section
+connect favicon and change title
+optimise seo 
+host on netlify?
+
+NOTES
 
 **Accordion Scroller notes start**
 
@@ -50,22 +60,7 @@ in the styleUrls array of the bonus-material-container)
 inre importing js files to angular: https://www.geeksforgeeks.org/how-to-include-a-javascript-file-in-angular-and-call-a-function-from-that-script/
 
 
-sort navbar - full width of screen
-sort navbar - disappears on scroll down, all that needs fixing here is for it to work the same way when you link to a higher
-up part of the page. See the pioneering work in about-me, linked w: https://developer.chrome.com/blog/angular-dom-safety-ssr 
-you basically need to create children in each different section, work out how to read their signals
 
-an eventemitter output has to be signalled to the app parent of all components from navbar
-app can view all its children
-then the app houses the logic that 
-
-
-import privacy statement
-connect privacy statement collapse logic
-ensure that window scrolls to top of collapsible section
-connect favicon and change title
-optimise seo 
-host on netlify?
 
 import code from static project for unique bonus material collapsibles
 

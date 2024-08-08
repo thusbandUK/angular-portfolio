@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 
 @Component({
   selector: 'app-privacy',
@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
       <div class="card-body-inner lighterbackground rounded-3">
         <div class="collapsible-heading-button d-flex justify-content-between">
           <p class="collapsible-heading">Privacy statement</p>
-          <button type="button" class="btn-close btn-close-white" data-bs-toggle="collapse" data-bs-target="#privacy-collapsible" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white" (click)="toggleClick('privacy')" aria-label="Close"></button>
         </div>
         
         <div class="collapsible-white-inner" id="privacy-statement-container">
@@ -450,5 +450,14 @@ import { Component } from '@angular/core';
   styleUrl: './privacy.component.css'
 })
 export class PrivacyComponent {
+
+    //defines eventemitter output
+    toggleSend = output<string>()
+
+    //click handler close button
+    toggleClick(id: string){
+        //emits 'privacy' to privacy-container.component
+        this.toggleSend.emit(id);
+    }
 
 }
