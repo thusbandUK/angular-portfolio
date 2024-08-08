@@ -5,9 +5,9 @@ import { Component, output } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-  <div class="row" id="privacy statement">
+  <div>
   <!--<div class="collapse collapsible col-12 pop-up" id="privacy-collapsible" data-bs-parent="#privacy-collapser">-->
-  <div class="collapsible col-12 pop-up" id="privacy-collapsible">
+  <div class="collapsible pop-up" id="privacy-collapsible">
     <div class="card card-body ">
       <div class="card-body-inner lighterbackground rounded-3">
         <div class="collapsible-heading-button d-flex justify-content-between">

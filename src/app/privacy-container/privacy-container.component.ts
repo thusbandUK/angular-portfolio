@@ -7,8 +7,8 @@ import { PrivacyComponent } from '../privacy/privacy.component';
   standalone: true,
   imports: [NgbAccordionModule, PrivacyComponent],
   template: `
-  <div ngbAccordion #accordion="ngbAccordion">
-	  <div ngbAccordionItem="privacy" >
+  <div ngbAccordion #accordion="ngbAccordion"  class="row" id="privacy statement">
+	  <div ngbAccordionItem="privacy" col-12 >
 		  <!--<h2 ngbAccordionHeader>
 			  <button ngbAccordionButton>First panel</button>
 		  </h2>-->
