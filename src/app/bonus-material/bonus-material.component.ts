@@ -1,7 +1,8 @@
-import { Component, Input, output } from '@angular/core';
+import { Component, Input, output, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { BonusStructure } from '../bonusStructure';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { ScenarioWheelComponent } from '../scenario-wheel/scenario-wheel.component';
 
 @Component({
   selector: 'app-bonus-material',
@@ -36,10 +37,18 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
       `,
   styleUrl: './bonus-material.component.css'
 })
-export class BonusMaterialComponent {
+export class BonusMaterialComponent implements OnInit {
   @Input() bonusMaterial!: BonusStructure;
+  
 
+  //const scenarioWheelComponent: ScenarioWheelComponent
   toggleSend = output<string>()    // OutputEmitterRef<string>
+
+  ngOnInit(): void {
+    console.log('bonus material ngOnInit called')
+   /// console.log(this.containerDiv);
+  }
+
 
   toggleClick(id: string){
     //idMarker helps to create a more readable #id tag for css
@@ -47,6 +56,7 @@ export class BonusMaterialComponent {
     //the numerical id for each section of bonus material is passed in string form to act as event emitter
     //this is then combined with the idMarker to synch with the readable id tags
     //console.log(idMarker+id)
+    
     this.toggleSend.emit(idMarker+id);    
   }  
 

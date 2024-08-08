@@ -4,9 +4,14 @@ consider different bonus material - what could work quite well is if you connect
 for and play a song
 
 merge the two links that both open email program w my email address
-ensure that window scrolls to top of collapsible section
+ensure that window scrolls to top of collapsible section - this is going to have hard bits and easy bits. bonus material
+is the parent container of each of the different bits, so that's all good, maybe, but the good news is that you won't
+need an event listener (like in the static site) because the viewDemo buttons all activate class code. So you'll need
+another function, almost certainly in the bonusMaterial.component class, that a) gets the clientBoundingRect.y for the 
+revealed element(possibly the hardest bit), gets the other y value and then scrolls the window accordingly.
 connect favicon and change title
 optimise seo 
+delete superfluous script files, incl but not limited to: navbar disappear, testScript(?)
 host on netlify?
 
 NOTES

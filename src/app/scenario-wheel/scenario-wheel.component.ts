@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, DoCheck, output } from '@angular/core';
 import { randomRotate } from '../../assets/scripts/scenarioScript';
 
 @Component({
@@ -6,11 +6,12 @@ import { randomRotate } from '../../assets/scripts/scenarioScript';
   standalone: true,
   imports: [],
   host: {
-    'style': 'display: flex;'
+    'style': 'display: flex;',
+    '[viewChildMarker]': 'viewChildMarker',
   },
   template: `
   <!--<div class="collapsible-white-inner" id="collapsible-{{bonusMaterial.componentReference}}-container">--><!--C9-->
-  <div class="collapsible-white-inner" id="scenario-wheel"><!--C9-->
+  <div class="collapsible-white-inner" id="scenario-wheel" #scenario><!--C9-->
   <div class="row container-fluid" id="scenario-wheel-holder">
     <div class="col-md-3">
       <p><button (click)="onClick()" aria-label="Click this button to get a randomly selected scenario then press tab for a summary">Click me to randomly select a situation</button></p> 
@@ -86,11 +87,40 @@ import { randomRotate } from '../../assets/scripts/scenarioScript';
   `,
   styleUrl: './scenario-wheel.component.css'
 })
-export class ScenarioWheelComponent {  
+export class ScenarioWheelComponent implements OnInit, DoCheck {  
 
   //uniqueIdReference = input<string>({alias: 'idReference'});
+  @ViewChild("scenario",{static:false}) containerDiv!: ElementRef;
+  //@ViewChild('nameInput',{static:false, read: ElementRef}) elRef;
 
-  
+  scenarioElementReference = output<ElementRef>();
+  ngOnInit(): void {
+    console.log('on init version');
+    if (this.containerDiv){
+      console.log(this.containerDiv.nativeElement);
+      let pixelsToMove: number = this.containerDiv.nativeElement.getBoundingClientRect().y;
+      window.scroll({
+        top: pixelsToMove,               
+        left: 0, 
+        behavior: 'smooth'
+
+    })
+    
+  }
+}
+
+  ngDoCheck(): void {
+    if (this.containerDiv){
+      console.log(this.containerDiv.nativeElement.getBoundingClientRect().y);
+      //this.nativeElement.getBoundingClientRect().y
+      /*window.scroll({
+        top: this.containerDiv.nativeElement.getBoundingClientRect().y,               
+        left: 0, 
+        behavior: 'smooth'
+    })*/
+
+    }    
+  }
 
   onClick():any {
     randomRotate();

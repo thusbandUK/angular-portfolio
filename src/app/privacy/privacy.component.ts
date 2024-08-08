@@ -374,7 +374,7 @@ import { Component, output } from '@angular/core';
                   If you wish to exercise any of the rights set out above, please contact me directly via thusbandUK&#64;gmail.com 
               </p>
               <p>
-                  <strong>No fee required – with some exceptions</strong>
+                  <strong>No fee required - with some exceptions</strong>
               </p>
               <p>
                   You will not have to pay a fee to access your personal data (or to exercise
@@ -434,7 +434,7 @@ import { Component, output } from '@angular/core';
                   <a href="https://ico.org.uk/global/contact-us/email/">
                       https://ico.org.uk/global/contact-us/email/
                   </a>
-                  or at the Information Commissioner’s Office, Wycliffe House, Water Lane,
+                  or at the Information Commissioner's Office, Wycliffe House, Water Lane,
                   Wilmslow, Cheshire, SK9 5AF, England, UK.
               </p>
               </div>

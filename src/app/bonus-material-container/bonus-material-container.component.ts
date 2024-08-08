@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { BonusMaterialComponent } from '../bonus-material/bonus-material.component';
 import { BonusService } from '../bonus.service';
 import { BonusStructure } from '../bonusStructure';
@@ -27,7 +27,7 @@ import { AlternativeStylingComponent } from '../alternative-styling/alternative-
     important both for the above-described styling but also for the div to have display flex, which enables the
     BM intro cards and collapsible materials to be rendered in a different order depending on whether they are being
     viewed on a smaller or larger screen-->
-<div ngbAccordion #accordion="ngbAccordion"  [closeOthers]="true" class="row trio-smaller-project-intros">
+<div ngbAccordion #accordion="ngbAccordion" id="bonus-accordion-parent" (shown)="logEvent($event)" [closeOthers]="true" class="row trio-smaller-project-intros">
     
     <!--<div class="row trio-smaller-project-intros acccordion">-->    
       <app-bonus-material
@@ -36,6 +36,7 @@ import { AlternativeStylingComponent } from '../alternative-styling/alternative-
         *ngFor="let bonusMaterial of bonusList"
         [bonusMaterial]="bonusMaterial"
         (toggleSend)="accordion.toggle($event)"
+        
       ></app-bonus-material>
     <!--</div>--><!--this might need to be moved for the ordering css to work-->
     
@@ -49,6 +50,7 @@ import { AlternativeStylingComponent } from '../alternative-styling/alternative-
       <div 
         *ngFor="let bonusMaterial of bonusList"
         [ngbAccordionItem]="'collapsibleContent'+bonusMaterial.id.toString()"
+        
       ><!--C1-->
         <div ngbAccordionCollapse><!--C2-->
 			    <div ngbAccordionBody><!--C3-->
@@ -93,9 +95,46 @@ import { AlternativeStylingComponent } from '../alternative-styling/alternative-
   styleUrls: ['./bonus-material-container.component.css', '../scenario-wheel/scenario-wheel.component.css'],
   providers: [NgbAccordionConfig],
 })
-export class BonusMaterialContainerComponent {
+export class BonusMaterialContainerComponent  {
 
+  //@ViewChild(BonusMaterialComponent) scenario!: BonusMaterialComponent;
+
+  //this (in tandem with "(shown)="logEvent($event)"" in ngbAccordion) triggers an event when a collapsible is opened
+  //and it gives the id of the collapsible
+ logEvent(event: any){
+  console.log('log event triggered');
+  console.log(event);
+  let element = document.getElementById(event);
+  let parent = document.getElementById("bonus-accordion-parent");
+  console.log(element);
+
+  //Finds the vertical position of the element within the window
+
+  if (element && parent){
+    var windowPositionElement = element.getBoundingClientRect().y;
+
+  //Finds the vertical position of the parent element relative to the window
   
+  var windowPositionParent = parent.getBoundingClientRect().y;
+
+  //Combines the above values with the vertical height above the parent element
+  
+  var scrollOffset = parent.offsetTop + windowPositionElement - windowPositionParent;
+
+  window.scroll({
+      top: scrollOffset,               
+      left: 0, 
+      behavior: 'smooth'
+  })
+
+  }
+  
+ }
+/*
+  ngOnInit(): void {
+    console.log('bonus material ngOnInit called')
+    console.log(this.scenario);
+  }*/
   
   getBonusContent(id: string){    
     
