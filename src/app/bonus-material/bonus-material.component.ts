@@ -1,7 +1,7 @@
 import { Component, Input, output } from '@angular/core';
 import { BonusStructure } from '../bonusStructure';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-bonus-material',
@@ -55,44 +55,9 @@ export class BonusMaterialComponent {
   customCollapseClick(){
     this.customCollapseAll.emit();
   }
-
-  //(click)="accordion.collapseAll()"
+  
   constructor(){
     
   }
 
 }
-
-/*
- data-bs-target="#collapseExample{bonusMaterial.id}"
-
-<div class="accordion-collapse collapse collapsible col-12" id="collapseExample{{bonusMaterial.id}}"  data-bs-parent="#accordionParent">
-  <div class="card ">
-    <div class="card-body">
-    <div class="card-body-inner lighterbackground rounded-3">
-      <div class="collapsible-heading-button d-flex justify-content-between">
-        <p class="collapsible-heading">Random horoscope generator</p>
-        <button type="button" class="btn-close btn-close-white" (click)="customCollapseClick()" aria-label="Close"></button>
-      </div>
-      <div class="collapsible-white-inner" id="collapsible-horoscope-container">
-        
-        <!--horoscope generator code starts-->
-
-        <h3>Click the planets to view your horoscope</h3>
-  
-          <div id="horoscope-container">
-            <div id="horoscope-text-holder">
-              <p id="text"></p>
-            </div>
-            <img id="planets-image" src="images/cartoon planets.jpg" onClick="printText();">
-          </div>
-
-
-        <!--horoscope generator code finishes-->
-      </div>
-    </div>
-    </div>
-  </div>
-</div>
-
-*/

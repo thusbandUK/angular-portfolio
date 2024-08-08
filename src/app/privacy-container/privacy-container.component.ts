@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, DoCheck, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { NgbAccordionModule, NgbAccordionDirective } from '@ng-bootstrap/ng-bootstrap';
 import { PrivacyComponent } from '../privacy/privacy.component';
 
@@ -20,23 +20,24 @@ import { PrivacyComponent } from '../privacy/privacy.component';
 			  </div>
 		  </div>
 	  </div>
-  </div>
-
-  <button class="nav-item list-group-item mx-2" id="privacy-collapser" (click)="accordion.toggle('privacy')" role="button">Privacy</button>
+  </div>  
   `,
   styleUrl: './privacy-container.component.css'
 })
 export class PrivacyContainerComponent implements OnChanges {
   //This enables the value of containerId in the app.component to be accessible in this child component
-  @Input() containerId!:string;
+  @Input() toggleStatus!:boolean;
 
   //this enables the NgbAccordion methods to be activated from the class
   @ViewChild('accordion') accordionComponent!: NgbAccordionDirective;
 
   //this listens for changes to the input, which are beamed via the app.component (as variable containerId)
-  //from the footer component
-  ngOnChanges(changes: SimpleChanges) {    
-    this.accordionComponent.toggle(this.containerId);
-  }
+  //from the footer component. It's a boolean that toggles between true and false.
+  ngOnChanges(changes: SimpleChanges) {
+    //throws an error if the compiler reads the code before the component is initialised.
+    if (this.accordionComponent){
+    this.accordionComponent.toggle("privacy");
+    }
+  }  
 
 }

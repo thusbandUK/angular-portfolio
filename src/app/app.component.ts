@@ -1,6 +1,5 @@
 import { Component, OnInit, HostListener, ElementRef, ViewChild, AfterViewInit, OnChanges } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-//import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainTitleComponent } from './main-title/main-title.component';
@@ -9,12 +8,8 @@ import { BigProjectContainerComponent } from './big-project-container/big-projec
 import { ContactComponent } from './contact/contact.component';
 import { BonusMaterialContainerComponent } from './bonus-material-container/bonus-material-container.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-//import * as sayHello from '../assets/scripts/testScript';
 import { AccordionTestComponent } from './accordion-test/accordion-test.component';
 import { PrivacyContainerComponent } from './privacy-container/privacy-container.component';
-
-
-//declare function sayHello(): any;
 
 @Component({
   selector: 'app-root',
@@ -22,10 +17,7 @@ import { PrivacyContainerComponent } from './privacy-container/privacy-container
   imports: [NgbModule, RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent, ContactComponent, BonusMaterialContainerComponent, AccordionTestComponent, PrivacyContainerComponent],
   template: `
     <header>
-      <app-navbar
-      
-      (navHide)="setNavHide"
-      ></app-navbar>
+      <app-navbar></app-navbar>
     </header>
     <!--<app-accordion-test></app-accordion-test>-->
     <main>
@@ -46,7 +38,7 @@ import { PrivacyContainerComponent } from './privacy-container/privacy-container
       </section>      
     </main>
     <app-privacy-container
-      [containerId]="containerId"
+      [toggleStatus]="toggleStatus"
     ></app-privacy-container>
     <footer>
       <app-footer
@@ -56,32 +48,16 @@ import { PrivacyContainerComponent } from './privacy-container/privacy-container
   `,
   styleUrl: './app.component.css'
 })
-export class AppComponent implements  AfterViewInit  {
+export class AppComponent  {
   title = 'T Husband';
-  
-  //@ViewChild(NavbarComponent) toggle: NavbarComponent | undefined;
-  @ViewChild('navbar') navbarDiv: ElementRef<HTMLDivElement> | undefined ;
-  @ViewChild(AboutMeComponent) aboutMePosition!: AboutMeComponent
-
-
-  setNavHide: boolean = false;
-  logResult(event: any){
-    console.log('logResult triggered')
-    console.log('app received output of', event);
-    //console.log(this.aboutMePosition.aboutMe.nativeElement.getBoundingClientRect().y);
-    //this.setNavHide = true;
-  }
-
-  containerId = "I am a placeholder containerId"; 
-  send(containerId: string){ 
-    console.log('send triggered')
-    this.containerId = containerId; 
-    console.log(containerId)
+    
+  //assigns variable toggleStatus
+  toggleStatus: boolean = false;
+  //sends toggleStatus for access in privacy-container.component
+  send(toggleStatus: boolean){ 
+    
+    this.toggleStatus = toggleStatus; 
+    
   } 
-
-  
- ngAfterViewInit(){
-  console.log(this.navbarDiv);
- }
   
 }

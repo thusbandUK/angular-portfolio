@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { BonusMaterialComponent } from '../bonus-material/bonus-material.component';
 import { BonusService } from '../bonus.service';
 import { BonusStructure } from '../bonusStructure';
@@ -130,52 +130,3 @@ export class BonusMaterialContainerComponent {
   bonusList: BonusStructure[] = [];
 
 }
-
-
-/*
-<!--container of trio of bonus material components 1--><!--
-    <div class="row trio-smaller-project-intros accordion" id="accordionParent">
-      <app-bonus-material
-        class="col-lg-3 col-md-5 collapser accordion-item"
-         id="collapser{{bonusMaterial.id}}"
-        *ngFor="let bonusMaterial of bonusList"
-        [bonusMaterial]="bonusMaterial"    
-      ></app-bonus-material>
-    </div>-->
-    <!--container of trio of bonus material components 1 ends-->
-
-<div ngbAccordion>
-     
-   <div ngbAccordionCollapse>
-       <div ngbAccordionBody>
-           <ng-template>Hello</ng-template>
-      </div>
-
-     </div>
-
-   </div>
-   
-<!--Still another accordion example-->
-<div ngbAccordion [closeOthers]="true">
-	@for (item of items2; track item) {
-		<div ngbAccordionItem [collapsed]="item !== 'First'">
-			<h2 ngbAccordionHeader>
-				<button ngbAccordionButton>{{ item }}</button>
-			</h2>
-			<div ngbAccordionCollapse>
-				<div ngbAccordionBody>
-					<ng-template>
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-						officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3
-						wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-						Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
-						excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-						you probably haven't heard of them accusamus labore sustainable VHS.
-					</ng-template>
-				</div>
-			</div>
-		</div>
-	}
-</div>
-<!--Still another accordion example ENDS-->
-*/
