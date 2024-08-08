@@ -28,7 +28,7 @@ import { PrivacyComponent } from '../privacy/privacy.component';
 })
 export class PrivacyContainerComponent implements OnChanges, OnInit {
   //This enables the value of containerId in the app.component to be accessible in this child component
-  @Input() toggleStatus:boolean = false;
+  @Input() toggleStatus!:boolean;
 
   //this enables the NgbAccordion methods to be activated from the class
   @ViewChild('accordion') accordionComponent!: NgbAccordionDirective;

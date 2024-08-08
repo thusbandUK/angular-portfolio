@@ -41,13 +41,15 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class FooterComponent {
 
+  //initialises output to bind event in app.component
   privacyToggleSend = output<boolean>()    // OutputEmitterRef<string>
 
+  //initialises variable to track toggle state. See note in parent app.container
   privacy: boolean = false;
   privacyToggle(){
-    console.log('privacyToggle click handler triggered in footer')
-    
+    //emits event to parent app.container    
     this.privacyToggleSend.emit(this.privacy);
+    //toggles value of privacy variable
     this.privacy = !this.privacy;
   }  
 

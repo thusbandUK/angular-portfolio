@@ -3,8 +3,7 @@ need to:
 consider different bonus material - what could work quite well is if you connect it to spotify so that users can search
 for and play a song
 
-connect privacy statement collapse logic - there's a problem with the fact that the first time you click privacy,
-nothing happens. Only on the second click does it work.
+style privacy-container / privacy components
 ensure that window scrolls to top of collapsible section
 connect favicon and change title
 optimise seo 

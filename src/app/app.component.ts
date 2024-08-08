@@ -51,8 +51,9 @@ import { PrivacyContainerComponent } from './privacy-container/privacy-container
 export class AppComponent  {
   title = 'T Husband';
     
-  //assigns variable toggleStatus
-  toggleStatus: boolean = false;
+  //assigns variable toggleStatus, it starts in the opposite case to the corresponding variable initiated in the footer
+  //component, in order that the first event is detected as a change by the privacy-container.component
+  toggleStatus: boolean = true;
   //sends toggleStatus for access in privacy-container.component
   send(toggleStatus: boolean){ 
     
