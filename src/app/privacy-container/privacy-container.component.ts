@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges, ViewChild, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { NgbAccordionModule, NgbAccordionDirective } from '@ng-bootstrap/ng-bootstrap';
 import { PrivacyComponent } from '../privacy/privacy.component';
 
@@ -7,7 +7,7 @@ import { PrivacyComponent } from '../privacy/privacy.component';
   standalone: true,
   imports: [NgbAccordionModule, PrivacyComponent],
   template: `
-  <div ngbAccordion #accordion="ngbAccordion"  class="row" id="privacy statement">
+  <div ngbAccordion #accordion="ngbAccordion" (shown)="privacyAutoScroll($event)" class="row" id="privacy-container">
 	  <div ngbAccordionItem="privacy" col-12 >
 		  <!--<h2 ngbAccordionHeader>
 			  <button ngbAccordionButton>First panel</button>
@@ -26,24 +26,34 @@ import { PrivacyComponent } from '../privacy/privacy.component';
   `,
   styleUrl: './privacy-container.component.css'
 })
-export class PrivacyContainerComponent implements OnChanges, OnInit {
+export class PrivacyContainerComponent implements OnChanges {
   //This enables the value of containerId in the app.component to be accessible in this child component
   @Input() toggleStatus!:boolean;
 
   //this enables the NgbAccordion methods to be activated from the class
   @ViewChild('accordion') accordionComponent!: NgbAccordionDirective;
 
-  ngOnInit(): void {
-    if (this.accordionComponent){
-      console.log(this.accordionComponent.toggle);
-      }
-      console.log(this.toggleStatus)
-    
+  //this is an event listener activated by the ng-bootstrap directives. When the collapsible is shown,
+  //the event fires, then the below code scrolls up by the parent offset
+  privacyAutoScroll(event: any){
+    let element = document.getElementById('privacy-container');
+    if (element){
+      var scrollOffset = element.offsetTop;
+
+      window.scroll({
+        top: scrollOffset,               
+        left: 0, 
+        behavior: 'smooth'
+      })
+
+    }
+
   }
+
+
   //this listens for changes to the input, which are beamed via the app.component (as variable containerId)
   //from the footer component. It's a boolean that toggles between true and false.
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChanges triggered')
     //throws an error if the compiler reads the code before the component is initialised.
     if (this.accordionComponent){
     this.accordionComponent.toggle("privacy");
@@ -58,10 +68,3 @@ export class PrivacyContainerComponent implements OnChanges, OnInit {
   }
 
 }
-
-/*
-
-if you add this to the accordionItem it means the elements are still in the dom, even though they're not shown,
-when the section is collapsed
-[destroyOnHide]="false"
-*/

@@ -1,10 +1,10 @@
 import { Component, output } from '@angular/core';
-import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule, NgbCollapse } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [NgbAccordionModule],
+  imports: [NgbAccordionModule, NgbCollapse],
   template: `
     <nav class="navbar sticky-bottom navbar-expand-lg navbar-dark  mt-5 pb-5">
       <div class="container-fluid  d-flex justify-content-between">      
@@ -15,10 +15,10 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
         <button class="nav-item list-group-item mx-2" id="privacy-collapser" (click)="privacyToggle()" role="button">Privacy</button>
         
           </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" (click)="this.isMenuCollapsed = !this.isMenuCollapsed" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse"  (shown)="footerMenuAutoScroll($event)" [ngbCollapse]="isMenuCollapsed" id="footerNav">
           <ul class="navbar-nav  ms-auto nav">  
             <!--LinkedIn-->          
             <li class="nav-item">
@@ -44,6 +44,7 @@ export class FooterComponent {
   //initialises output to bind event in app.component
   privacyToggleSend = output<boolean>()    // OutputEmitterRef<string>
 
+  isMenuCollapsed: boolean = true;
   //initialises variable to track toggle state. See note in parent app.container
   privacy: boolean = false;
   privacyToggle(){
@@ -51,6 +52,20 @@ export class FooterComponent {
     this.privacyToggleSend.emit(this.privacy);
     //toggles value of privacy variable
     this.privacy = !this.privacy;
-  }  
+  }
+  
+  //this is an event listener activated by the ng-bootstrap directives. When the collapsible is shown,
+  //the event fires, then the below code scrolls up by the parent offset
+  footerMenuAutoScroll(event: any){
+    
+    let element = document.getElementById('footerNav');
+    if (element){
+      
+      // stated y-axis value effectively scrolls right to the bottom
+      window.scrollTo(0,6000)
+      
+    }
+
+  }
 
 }
