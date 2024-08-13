@@ -15,8 +15,7 @@ inclusion of a second trio of bonus materials (see commented out code below)
     'style': 'display: flex;'
   },
   template: `
-  <div class="collapsible-white-inner w-100">
-    <app-actor-form-component></app-actor-form-component>
+  <div class="collapsible-white-inner w-100">    
     
   </div>  
   `,

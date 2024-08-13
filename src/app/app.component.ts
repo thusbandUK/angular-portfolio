@@ -8,18 +8,16 @@ import { BigProjectContainerComponent } from './big-project-container/big-projec
 import { ContactComponent } from './contact/contact.component';
 import { BonusMaterialContainerComponent } from './bonus-material-container/bonus-material-container.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AccordionTestComponent } from './accordion-test/accordion-test.component';
 import { PrivacyContainerComponent } from './privacy-container/privacy-container.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgbModule, RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent, ContactComponent, BonusMaterialContainerComponent, AccordionTestComponent, PrivacyContainerComponent],
+  imports: [NgbModule, RouterOutlet, NavbarComponent, FooterComponent, MainTitleComponent, AboutMeComponent, BigProjectContainerComponent, ContactComponent, BonusMaterialContainerComponent, PrivacyContainerComponent],
   template: `
     <header>
       <app-navbar></app-navbar>
-    </header>
-    <!--<app-accordion-test></app-accordion-test>-->
+    </header>    
     <main>
       <section id="main-title">
         <app-main-title></app-main-title>
