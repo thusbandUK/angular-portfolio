@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
-import { ActorFormComponentComponent } from '../actor-form-component/actor-form-component.component';
+
+
+/*
+Moth-balled for potential reintroduction if the addition of two further bonus material items justify the 
+inclusion of a second trio of bonus materials (see commented out code below)
+
+*/
 
 @Component({
   selector: 'app-alternative-styling',
   standalone: true,
-  imports: [ActorFormComponentComponent],
+  imports: [],
   host: {
     'style': 'display: flex;'
   },
