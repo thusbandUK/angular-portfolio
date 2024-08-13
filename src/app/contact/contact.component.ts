@@ -12,12 +12,12 @@ import { Component } from '@angular/core';
           I am currently seeking full-time employment as a software developer, so if you are looking to recruit, please get in touch. 
         </p>
       <div class="list-group d-flex flex-row">
-        <a class="list-group-item list-group-item-action pe-2" aria-label="email link" title="link to email T Husband" href="mailto:thusbandUK@gmail.com"><p id="email-link" class="fs-2 my-auto">thusbandUK&#64;gmail.com</p></a>
-        <a class="list-group-item list-group-item-action my-auto  pe-2" aria-label="email link" title="link to email T Husband" href="mailto:thusbandUK@gmail.com">
+        <a class="list-group-item list-group-item-action pe-2" aria-label="email link" title="link to email T Husband" href="mailto:thusbandUK@gmail.com"><p id="email-link" class="fs-2 my-auto">thusbandUK&#64;gmail.com</p><i class="bi bi-envelope  ms-2 fs-3 my-auto"></i></a>
+        <!--<a class="list-group-item list-group-item-action my-auto  pe-2" aria-label="email link" title="link to email T Husband" href="mailto:thusbandUK@gmail.com">
           <i class="bi bi-envelope"></i>
-        </a>        
+        </a>-->        
         <button class="list-group-item list-group-item-action my-auto pe-2" aria-label="copy email address" title="link to copy T Husband email to clipboard" (click)="copyToClipboard('thusbandUK@gmail.com')">
-          <i class="bi bi-clipboard"></i>
+          <i class="bi bi-clipboard fs-3 my-auto"></i>
         </button>
       </div>
     </div>

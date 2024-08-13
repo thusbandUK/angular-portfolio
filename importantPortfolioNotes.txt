@@ -1,7 +1,7 @@
 need to:
 
 merge the two links that both open email program w my email address
-connect favicon and change title
+
 optimise seo 
 write tests
 host on netlify?
