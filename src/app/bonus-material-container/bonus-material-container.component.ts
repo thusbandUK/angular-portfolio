@@ -8,12 +8,13 @@ import { NgbAccordionModule, NgbAccordionConfig } from '@ng-bootstrap/ng-bootstr
 import { HoroscopeComponent } from '../horoscope/horoscope.component';
 import { ScenarioWheelComponent } from '../scenario-wheel/scenario-wheel.component';
 import { AlternativeStylingComponent } from '../alternative-styling/alternative-styling.component';
+import { RobotContainerComponent } from '../robot-container/robot-container.component';
 
 
 @Component({
   selector: 'app-bonus-material-container',
   standalone: true,
-  imports: [BonusMaterialComponent, NgFor, NgbModule, NgbAccordionModule, NgComponentOutlet, HoroscopeComponent, ScenarioWheelComponent, AlternativeStylingComponent],
+  imports: [BonusMaterialComponent, NgFor, NgbModule, NgbAccordionModule, NgComponentOutlet, HoroscopeComponent, ScenarioWheelComponent, AlternativeStylingComponent, RobotContainerComponent],
   template: `
     <!--Section title-->
     <div class="text-start mt-5 mb-5 mx-auto">
@@ -145,8 +146,8 @@ export class BonusMaterialContainerComponent  {
       case "horoscope": {
         return HoroscopeComponent;
         break;}
-      case "alternativeStyling": {
-        return AlternativeStylingComponent;
+      case "robotGenerator": {
+        return RobotContainerComponent;
         break;}
       default: {
         return null;

@@ -17,6 +17,7 @@ You use interpolation to include the values for name, city and state of the hous
   imports: [],
   template: `
     <section class="listing">
+    
       <img
         class="listing-photo"
         [src]="housingLocation.photo"

@@ -1,0 +1,12 @@
+.robot-image {
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (min-width: 600px) {
+    .robot-image {
+        width: auto;
+        height: 100%;
+    }
+
+}

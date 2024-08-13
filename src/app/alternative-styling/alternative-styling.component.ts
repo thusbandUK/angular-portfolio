@@ -1,14 +1,27 @@
 import { Component } from '@angular/core';
+import { ActorFormComponentComponent } from '../actor-form-component/actor-form-component.component';
 
 @Component({
   selector: 'app-alternative-styling',
   standalone: true,
-  imports: [],
+  imports: [ActorFormComponentComponent],
   host: {
     'style': 'display: flex;'
   },
   template: `
   <div class="collapsible-white-inner w-100">
+    <app-actor-form-component></app-actor-form-component>
+    
+  </div>  
+  `,
+  styleUrl: './alternative-styling.component.css'
+})
+export class AlternativeStylingComponent {
+
+}
+
+/*
+<div class="collapsible-white-inner w-100">
   <div id="trio-of-raven-landing-pages" class="row w-100 d-flex-inline justify-content-around" style="height: 60vh;">
       <div class="col-md-3 m-2 d-flex align-items-center">
         <div id="left-photo" class="m-auto" style="background-color: red;">
@@ -124,9 +137,4 @@ import { Component } from '@angular/core';
       </div>
     </div>
     </div>
-  `,
-  styleUrl: './alternative-styling.component.css'
-})
-export class AlternativeStylingComponent {
-
-}
+    */
