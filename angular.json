@@ -91,10 +91,7 @@
               "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "src/assets/scripts/horoscopeGeneratorScripts.js",
               "src/assets/scripts/testScript.js",
-              "src/assets/scripts/scenarioScript.js",
-              "src/assets/scripts/accordionScroller.js",
-              "src/assets/scripts/navbarScroll.js",
-              "src/assets/scripts/popUpScroll.js",
+              "src/assets/scripts/scenarioScript.js",              
               "src/assets/scripts/scrambling-text.js"
             ]
           }

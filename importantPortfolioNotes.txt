@@ -1,16 +1,9 @@
 need to:
 
-consider different bonus material - what could work quite well is if you connect it to spotify so that users can search
-for and play a song
-
-do a robohash.org robot generator https://robohash.org/
-
-
-
 merge the two links that both open email program w my email address
 connect favicon and change title
 optimise seo 
-delete superfluous script files, incl but not limited to: navbar disappear, testScript(?)
+write tests
 host on netlify?
 
 NOTES
