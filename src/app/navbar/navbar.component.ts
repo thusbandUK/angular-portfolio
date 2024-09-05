@@ -28,9 +28,11 @@ import { AboutMeComponent } from '../about-me/about-me.component';
             <li class="nav-item px-lg-4 mx-lg-1">
               <a class="nav-link" href="#get-in-touch" (click)="collapseMenu()" target="_self">Contact</a>
             </li>
+            <!--
             <li class="nav-item px-lg-4 mx-lg-3">
               <a class="nav-link" href="./files/CV.pdf" (click)="collapseMenu()" target="_blank" download="THusband-CV">CV</a>
             </li>
+            -->
             <!--LinkedIn-->          
             <li class="nav-item">
               <a class="nav-link " (click)="isMenuCollapsed = true" aria-label="link to Linked In profile" title="link to Linked In profile" href="https://www.linkedin.com/in/tom-husband-37b39986/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
