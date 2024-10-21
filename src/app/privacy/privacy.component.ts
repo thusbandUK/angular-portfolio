@@ -33,8 +33,8 @@ import { Component, output } from '@angular/core';
                   
               </p>
               <div id="address">
-                  <p>Tom Husband</p>
-                  <p>thusbanduk&#64;gmail.com </p>
+                  <p>Tamsin Armstrong</p>
+                  <p>hello&#64;tamsinarmstrong.co.uk </p>
                   
               </div>
               
@@ -371,7 +371,7 @@ import { Component, output } from '@angular/core';
               
               
               <p>
-                  If you wish to exercise any of the rights set out above, please contact me directly via thusbandUK&#64;gmail.com 
+                  If you wish to exercise any of the rights set out above, please contact me directly via hello&#64;tamsinarmstrong.co.uk 
               </p>
               <p>
                   <strong>No fee required - with some exceptions</strong>
@@ -421,8 +421,8 @@ import { Component, output } from '@angular/core';
               </p>
               <p>
                   To exercise all relevant rights, queries or complaints in relation to this policy or any other data 
-                  protection matter between you and myself, Tom Husband, please in the first instance contact me on 
-                  thusbandUK&#64;gmail.com
+                  protection matter between you and myself, Tamsin Armstrong, please in the first instance contact me on 
+                  hello&#64;tamsinarmstrong.co.uk
               </p>
               <p>
                   If this does not resolve your complaint to your satisfaction, you have the

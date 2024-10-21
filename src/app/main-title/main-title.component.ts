@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   template: `
     <div class="text-start text-box mt-2 mx-auto">
       <div class="main-title-inner">
-        <h1 class="pinkText">Tom Husband</h1>
+        <h1 class="pinkText">Tamsin Armstrong</h1>
         <div class="row">
           <div class="col-lg-8">
             <p class="fs-5 mb-0 mt-3 sub-title"><strong>Websites that make you feel chemistry</strong></p>
