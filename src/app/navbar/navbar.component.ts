@@ -9,7 +9,7 @@ import { AboutMeComponent } from '../about-me/about-me.component';
   template: `
     <nav id="navbar" #navbar [class.hide-nav]="hideNav" class="navbar navbar-expand-lg navbar-dark  background " aria-label="navigation bar">
       <div class="container-fluid d-flex justify-content-between" #myDiv>
-        <a class="navbar-brand border border-2  bs-navbar-toggler-border-color p-1 py-3" href="#"> &lt;Th\&gt;</a>        
+        <a class="navbar-brand border border-2  bs-navbar-toggler-border-color p-1 py-3" href="#"> &lt;Ta\&gt;</a>        
         <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
           
