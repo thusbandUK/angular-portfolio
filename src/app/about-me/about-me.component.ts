@@ -44,6 +44,7 @@ import { Component, ViewChild, ElementRef, AfterContentInit, HostListener, outpu
                   <li>REACT</li>
                   <li>NODE.JS</li>
                   <li>EXPRESS</li>
+                  <li>WORDPRESS</li>
                 </ul>
               </div>      
             </div>

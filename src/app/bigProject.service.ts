@@ -10,8 +10,18 @@ export class BigProjectService {
   readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
 
   bigProjectList: BigProjectStructure[] = [
-    {
+      {
         id: 1,
+        image: './assets/screengrabs of sites and snippets/cowfolk.png',
+        imageAlt: 'front page of Easton Cowfolk website',
+        title: 'Easton Cowfolk',
+        description: 'Newly restyled website for the Easton Cowfolk website. Created by development of a Wordpress child theme, according to provided Figma designs.',
+        skills: ['WORDPRESS', 'WP-ENV', 'DOCKER'],
+        githubUrl: '',
+        siteUrl: 'https://dev.eastoncowfolk.org.uk/'   
+      },  
+      {
+        id: 2,
         image: './assets/screengrabs of sites and snippets/Now Chemistry.png',
         imageAlt: 'front page of Now Chemistry website features pink amethyst crystals',
         title: 'Now Chemistry',
@@ -21,7 +31,18 @@ export class BigProjectService {
         siteUrl: 'https://nowchemistry.com/'   
       },
       {
-        id: 2,
+        id: 3,
+        image: './assets/screengrabs of sites and snippets/woodandsteele.png',
+        imageAlt: 'front page of Wood and Steele website features examples of restored vintage furniture',
+        title: 'Wood and Steele',
+        description: 'Active website for local vintage furniture restoration company Wood and Steele. Designed via Wordpress using block editing.',
+        skills: ['WORDPRESS', 'BLOCK EDITOR', 'HTML'],
+        githubUrl: '',
+        siteUrl: 'https://woodandsteele.co.uk/'   
+      },
+      
+      {
+        id: 4,
         image: './assets/screengrabs of sites and snippets/sarahlavelle3.png',
         imageAlt: 'front page of Sarah Lavelle website features cartoon sea creatures',
         title: 'Sarah Lavelle',
@@ -31,7 +52,7 @@ export class BigProjectService {
         siteUrl: 'https://www.sarahlavelle.co.uk/'   
       },
       {
-        id: 3,
+        id: 5,
         image: './assets/screengrabs of sites and snippets/raven-frames.png',
         imageAlt: 'front page of Raven Frames website features example picture frames',
         title: 'Raven Frames',
