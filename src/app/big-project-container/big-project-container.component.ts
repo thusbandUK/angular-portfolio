@@ -23,9 +23,10 @@ import { ElephantComponent } from '../elephant/elephant.component';
         <h2>Projects</h2>
       </div>
     </div>
+    <!--
     <app-elephant>
     </app-elephant>
-       
+       -->
     <app-big-project
       *ngFor="let bigProject of bigProjectList"
         [bigProject]="bigProject"

@@ -26,7 +26,7 @@ import { ElephantAnimationComponent } from '../elephant-animation/elephant-anima
           <!--<p *ngFor="let item of bigProject.skills">{{item}}</p>-->
           <!--<a class="nav-link px-lg-1" href={{bigProject.githubUrl}} aria-label="link to Now Chemistry Github repository" title="link to Now Chemistry Github repository" target="_blank"><i class="bi bi-github project-main-text"></i></a>-->
         </div>
-        <a href="https://vercel.com/tom-husbands-projects/ce-fullstack3-hzaf" class="btn my-3 fs-6 w-100 project-contact-button">
+        <a href="https://ce-fullstack3-hzaf.vercel.app/" class="btn my-3 fs-6 w-100 project-contact-button">
           Visit Website
         </a>
       </div>
