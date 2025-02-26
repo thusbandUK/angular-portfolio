@@ -64,28 +64,16 @@ import { NgClass } from '@angular/common';
     <!---->
   </svg>
   `,  
-  //styleUrl: './elephant-animation.component.css'
-  styles: `
-    .class-experiment { 
-      fill: yellow;
-}    `
-
+  styleUrl: './elephant-animation.component.css'
   
 })
 export class ElephantAnimationComponent implements OnInit {
 
-  /*
-  prev at line 14 [attr.fill]="sectionColours.section1" 
+  //Very specific, it takes an array of numbers and either reverses the whole thing or doesn't
+  //This is so the "domino finish" effect where all the tiles on the elephant change colour
+  //randomly goes in either one direction or the other
 
-  [attr.fill]="colorExperiment" NOTE USE ATTR. WHICH IS NECESSARY FOR THE LESS COMMONLY USED ATTRIBUTES
-  WHICH AREN'T REGISTERED TO WORK BY THEMSELVES (UNLIKE, SAY, [value])
   
-  SEE colorExperiment BELOW, WHICH ISN'T REGISTERED WITH 'CONST' 'VAR' OR 'LET' SINCE ITS IN A CLASS
-
-  */
-
-  numberArray = [1,2,3,4,5,6,7];
-
   sequenceRandomiser = (array: number[]) => {
     const randomNumber = Math.floor(Math.random() * 2);
     if (randomNumber === 0){
@@ -98,25 +86,42 @@ export class ElephantAnimationComponent implements OnInit {
     return reversedArray;
    }
 
-  dominoArray = [7,6,5,4,3,2,1];
-   
-  randomisedDominoArray = this.sequenceRandomiser(this.dominoArray)
-
-  timeout = 150;
-  timeout2 = 1800;
-  timeoutIndex = 0;
+  //also very specific - these are the timings in which the "flickering on" colour changes
+  //happen in the elephant, it also instructs them at which time to revert to white
   timeoutArray = [0,500,700,600,800, 1200, 1350, 1200, 1350, 2500, 2700, 2600, 2800, 2700, 2900]
 
+  //hexcodes of the four possible colours for the elephant tiles
+  colors = ['#f28972', '#F2C48D', '#D98FBF', '#8268A6'];
+
+  //at the end of the animation, all of the tiles of the elephant turn one colour and it can be
+  //one of the four colours above. Currently the function printColorChoiceAndSection below writes
+  //in the first colour selected, but that could be good to move out to a separate function
   finalColor = "";
 
-  colorExperiment: string = 'red'
+  /*
+  summary: printColorChoiceAndSection is responsible for the initial "flickering" of the elephant,
+  before it completely changes to one new colour
 
-  printColorChoiceAndSection = () => {
-    if (this.timeoutIndex >=8){
+  printColorChoiceAndSection is a recursive function that takes an array, initially of the numbers 1 to 7
+  and an index. If either the index is above 8 or the array has zero length, it automatically returns.
+  The numbers in the passed array relate to sections of the elephant. The function selects a number 
+  from the array and randomly generates a colour. The random number is also removed from the array. 
+  The function then turns the corresponding elephant panel the randomly selected colour, before then 
+  restoring it back to white. Those changes occur according to the timings in the external timeoutArray,
+   which are selected by timeoutIndex, which is incremented by 1 with each pass of the function. 
+  The function is recursive and the same arguments are passed, but now a smaller pool of numbers is
+  available, so that the same panels are not selected for random colouring twice. Ultimately timeoutIndex
+  increases above 8 and the function stops
+  */
+
+  //Initially this should be passed [1,2,3,4,5,6,7]
+  printColorChoiceAndSection = (passedNumberArray: number[], passedTimeoutIndex: number) => {
+    
+    if (passedTimeoutIndex >=8){      
       return
     }
     
-    if (this.numberArray.length === 0){
+    if (passedNumberArray.length === 0){      
       return}
     
       const selections = {
@@ -124,13 +129,11 @@ export class ElephantAnimationComponent implements OnInit {
           color: ""
       }
       
-      const randomPosition = Math.floor(Math.random() * this.numberArray.length);
-      selections.section = this.numberArray.splice(randomPosition,1)[0];      
-  
-      const colors = ['#f28972', '#F2C48D', '#D98FBF', '#8268A6'];
-      
+      const randomPosition = Math.floor(Math.random() * passedNumberArray.length);
+      selections.section = passedNumberArray.splice(randomPosition,1)[0];      
+        
       const randomColorNumber = Math.floor(Math.random() * 4);
-      selections.color = colors[randomColorNumber];
+      selections.color = this.colors[randomColorNumber];
       this.finalColor === "" ? this.finalColor = selections.color : null;
       
       setTimeout(() => {
@@ -138,21 +141,30 @@ export class ElephantAnimationComponent implements OnInit {
         if (element){          
           element.fill = selections.color;
         }        
-      }, this.timeoutArray[this.timeoutIndex = this.timeoutIndex + 1])  
+      }, this.timeoutArray[passedTimeoutIndex = passedTimeoutIndex + 1])  
   
       setTimeout(() => {
         const element = document.getElementById(`color-section-${selections.section.toString()}`)?.style;
         if (element){          
           element.fill = 'white';
         }        
-      }, this.timeoutArray[this.timeoutIndex = this.timeoutIndex + 1])      
+      }, this.timeoutArray[passedTimeoutIndex = passedTimeoutIndex + 1])      
   
-      this.printColorChoiceAndSection()
+      this.printColorChoiceAndSection(passedNumberArray, passedTimeoutIndex)
   }
 
-  dominoFinish = () => {
+  /*
+  summary: causes the "domino rally" finish of phase two of the animation, when all the tiles
+  sequentially turn one colour
+
+  works similarly to printColorChoiceAndSection in that it is recursive. It is passed an array
+  of either the numbers 1 to 7 or the same numbers but in reverse (see sequenceRandomiser function).
+  It is also passed timeout2, like timeoutIndex, timeout2 is increment with each iteration of the function,
+  which causes the time delay for the "domino rally" (instead of all tiles changing colour at once)
+  */
+  dominoFinish = (passedRandomisedDominoArray: number[], passedTimeout2: number) => {    
     
-    if (this.randomisedDominoArray.length === 0){
+    if (passedRandomisedDominoArray.length === 0){      
       return
     }    
   
@@ -161,24 +173,40 @@ export class ElephantAnimationComponent implements OnInit {
       color: ""  
     }
   
-    selections.section = this.randomisedDominoArray.pop();
+    selections.section = passedRandomisedDominoArray.pop();
   
     setTimeout(() => {
       const element = document.getElementById(`color-section-${selections.section.toString()}`)?.style;
       if (element){          
         element.fill = this.finalColor;
       }
-    }, this.timeout2 = this.timeout2 + 25)
+    }, passedTimeout2 = passedTimeout2 + 25)
   
-    this.dominoFinish()  
+    this.dominoFinish(passedRandomisedDominoArray, passedTimeout2)  
   
-    }
+  }
 
+    //This initiates the animation sequence on page load 
   ngOnInit(): void {
 
     const colourSet = [1,2,3,4,5,6,7]
 
     setInterval(() => {
+
+      /*These are all the values passed to the functions, during the cycle the arrays will
+      shorten in length until they are empty, which stops the recursive functions */
+      const numberArray = [1,2,3,4,5,6,7]
+      const dominoArray = [7,6,5,4,3,2,1]
+      const randomisedDominoArray = this.sequenceRandomiser(dominoArray);
+
+      //increments with each pass through printColorChoiceAndSection, to select the correct
+      //time from this.timeoutArray, which never changes
+      let timeoutIndex = 0;
+      
+      //increments with each pass through dominoFinish, to create the "domino rally" timing
+      let timeout2 = 1800
+
+      //turns all the panels back to white at the end of the cycle
       setTimeout(() => {
         colourSet.forEach((x)=> {        
           const element = document.getElementById(`color-section-${x.toString()}`)?.style
@@ -189,23 +217,22 @@ export class ElephantAnimationComponent implements OnInit {
       }, 7000)
           
 
-      this.printColorChoiceAndSection()
-      this.dominoFinish()
-      
-      this.numberArray = [1,2,3,4,5,6,7];
-      this.dominoArray = [7,6,5,4,3,2,1];
-      this.timeoutIndex = 0;
-      this.randomisedDominoArray = this.sequenceRandomiser(this.dominoArray)
-      this.timeout = 150;
-      this.timeout2 = 1800;
+      //calls the named functions
 
+      //causes the initial blinking of the first four panels to light up
+      this.printColorChoiceAndSection(numberArray, timeoutIndex)
+
+      //causes the whole elephant to turn one randomly selected colour
+      this.dominoFinish(randomisedDominoArray, timeout2)      
+
+      //time of each interval cycle: 8 seconds
     }, 8000)    
       
     }
 
 }
 
-
+//below you can see the image call that needs to be replaced with something else
 //function let(target: ElephantAnimationComponent, propertyKey: 'colorExperiment'): void {
   //throw new Error('Function not implemented.');
 //}
