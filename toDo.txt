@@ -1,5 +1,0 @@
-need to:
-
-optimise seo 
-write tests
-reduce size css files
