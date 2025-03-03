@@ -1,0 +1,11 @@
+.svg-container {
+    fill: white;
+    background-color: white;
+    stroke-width: 0px;
+}
+
+.svg-element {
+    fill: white;
+    fill-opacity: 1;
+    outline: black;
+}
