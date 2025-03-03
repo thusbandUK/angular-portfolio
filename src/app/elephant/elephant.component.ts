@@ -9,10 +9,18 @@ import { ElephantAnimationComponent } from '../elephant-animation/elephant-anima
   template: `  
   <div id="project-container-elephant" class="project-container mt-5">
     <div class="project-container-inner mx-auto position-relative d-flex flex-column">
-      <div class="project-image-container" [ngClass]="2 % 2 === 0 ? 'd-flex justify-content-end' : ''">    
+      <div class="project-image-container position-relative" [ngClass]="2 % 2 === 0 ? 'd-flex justify-content-end' : ''">    
       <!--INSERT ANIMATION HERE-->
-      <app-elephant-animation>
-      </app-elephant-animation>
+      <!--  
+      
+      <img class="project-image img-fluid" [ngClass]="2 % 2 === 0 ? 'project-image-left' : ''" src="./assets/screengrabs of sites and snippets/white-background.png" alt="PLACEHOLDER" aria-label="front page of Now Chemistry website" title="Now Chemistry website">
+        -->
+        <div class="project-image img-fluid bg-white position-relative elephant-animation-white-background">
+          <div class="position-absolute elephant-position">  
+            <app-elephant-animation>
+            </app-elephant-animation>
+          </div>
+        </div>
       
       </div>
       <div class="project-text-box px-4 py-3 rounded-4" [ngClass]="2 % 2 === 0 ? 'left' : 'right'">
@@ -33,8 +41,10 @@ import { ElephantAnimationComponent } from '../elephant-animation/elephant-anima
     </div>
   </div>
 `,
-  styleUrl: '../big-project/big-project.component.css'
+  styleUrls: ['../big-project/big-project.component.css', './elephant.component.css']
 })
 export class ElephantComponent {
 
 }
+
+//<img class="project-image img-fluid" [ngClass]="2 % 2 === 0 ? 'project-image-left' : ''" src="assets/card-thumbnails/horoscope.png" alt="PLACEHOLDER" aria-label="front page of Now Chemistry website" title="Now Chemistry website">

@@ -1,0 +1,26 @@
+.elephant-position {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.project-image {
+    box-shadow: -1em 1em 0.3em rgba(0,0,0, 0.6);        
+    height: 70vh;
+    max-width: 100%;        
+}
+
+@media screen and (max-width: 992px) {
+    .elephant-animation-white-background {
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+    .elephant-animation-white-background {
+        aspect-ratio: 2.3;
+    }
+
+}
