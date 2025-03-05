@@ -10,8 +10,18 @@ export class BigProjectService {
   readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
 
   bigProjectList: BigProjectStructure[] = [
-      {
-        id: 1,
+    {
+      id: 1,
+      image: './assets/screengrabs of sites and snippets/outlas.png',
+      imageAlt: 'front page of Outlas website features map, location pins and a sidebar',
+      title: 'Outlas',
+      description: 'Outlas uses MapboxGl technology to render map with locations of winter sports businesses and services, details of which are called from a PostgreSQL database.',
+      skills: ['MAPBOX', 'NEXTJS', 'POSTGRESQL'],
+      githubUrl: '',
+      siteUrl: 'https://outlas.vercel.app/'   
+    }, 
+    {
+        id: 2,
         image: './assets/screengrabs of sites and snippets/cowfolk.png',
         imageAlt: 'front page of Easton Cowfolk website',
         title: 'Easton Cowfolk',
@@ -19,9 +29,9 @@ export class BigProjectService {
         skills: ['WORDPRESS', 'WP-ENV', 'DOCKER'],
         githubUrl: '',
         siteUrl: 'https://dev.eastoncowfolk.org.uk/'   
-      },  
+      },       
       {
-        id: 2,
+        id: 3,
         image: './assets/screengrabs of sites and snippets/Now Chemistry.png',
         imageAlt: 'front page of Now Chemistry website features pink amethyst crystals',
         title: 'Now Chemistry',
@@ -29,18 +39,7 @@ export class BigProjectService {
         skills: ['JAVASCRIPT', 'REACT-REDUX', 'BOOTSTRAP'],
         githubUrl: 'https://github.com/thusbandUK/transition-redux',
         siteUrl: 'https://nowchemistry.com/'   
-      },
-      {
-        id: 3,
-        image: './assets/screengrabs of sites and snippets/woodandsteele.png',
-        imageAlt: 'front page of Wood and Steele website features examples of restored vintage furniture',
-        title: 'Wood and Steele',
-        description: 'Active website for local vintage furniture restoration company Wood and Steele. Designed via Wordpress using block editing.',
-        skills: ['WORDPRESS', 'BLOCK EDITOR', 'HTML'],
-        githubUrl: '',
-        siteUrl: 'https://woodandsteele.co.uk/'   
-      },
-      
+      },          
       {
         id: 4,
         image: './assets/screengrabs of sites and snippets/sarahlavelle3.png',
@@ -78,3 +77,18 @@ export class BigProjectService {
     
    }
 }
+
+/*
+woodandsteele details
+
+{
+        id: 4,
+        image: './assets/screengrabs of sites and snippets/woodandsteele.png',
+        imageAlt: 'front page of Wood and Steele website features examples of restored vintage furniture',
+        title: 'Wood and Steele',
+        description: 'Active website for local vintage furniture restoration company Wood and Steele. Designed via Wordpress using block editing.',
+        skills: ['WORDPRESS', 'BLOCK EDITOR', 'HTML'],
+        githubUrl: '',
+        siteUrl: 'https://woodandsteele.co.uk/'   
+      },
+*/

@@ -32,8 +32,8 @@ projects with odd-numbered ids
         <div class="project-skills-text d-flex justify-content-between">
           <p *ngFor="let item of bigProject.skills">{{item}}</p>          
           <!--<a class="nav-link px-lg-1" href={{bigProject.githubUrl}} aria-label="link to Now Chemistry Github repository" title="link to Now Chemistry Github repository" target="_blank"><i class="bi bi-github project-main-text"></i></a>-->
-        </div>
-        <a href={{bigProject.siteUrl}} class="btn my-3 fs-6 w-100 project-contact-button">
+        </div>        
+        <a href={{bigProject.siteUrl}}  target="_blank" class="btn my-3 fs-6 w-100 project-contact-button">
           Visit Website
         </a>
       </div>
@@ -48,12 +48,5 @@ export class BigProjectComponent {
   openLink(s: string){
     window.open(s,'_blank');
   }
+  
 }
-
-
-/*
-
-<button type="button" (click)="openLink(bigProject.siteUrl)" class="btn my-3 fs-6 w-100 project-contact-button">
-          Visit Website
-        </button>
-*/
